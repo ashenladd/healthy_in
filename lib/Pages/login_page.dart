@@ -1,14 +1,26 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:healthy_in/Pages/SignUp%20Page/sign_up_page.dart';
 import 'package:healthy_in/theme/fonts.dart';
 
 import '../widgets/app_top_bar.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
 
   @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  @override
   Widget build(BuildContext context) {
+    var phoneNumberController = TextEditingController();
+    var passwordController = TextEditingController();
+    // Need to check everytime
+    bool condition =
+        phoneNumberController.text != "" && passwordController.text != "";
     double h = MediaQuery.of(context).size.height;
     double w = MediaQuery.of(context).size.width;
     return Scaffold(
@@ -40,6 +52,7 @@ class LoginPage extends StatelessWidget {
                   height: 42,
                 ),
                 TextField(
+                  controller: phoneNumberController,
                   keyboardType: TextInputType.number,
                   decoration: InputDecoration(
                     hintText: "Nomor Handphone",
@@ -67,6 +80,7 @@ class LoginPage extends StatelessWidget {
                   height: 8,
                 ),
                 TextField(
+                  controller: passwordController,
                   obscureText: true,
                   decoration: InputDecoration(
                     hintText: "Kata Sandi",
@@ -112,7 +126,9 @@ class LoginPage extends StatelessWidget {
                     style: ElevatedButton.styleFrom(
                         elevation: 0,
                         backgroundColor: //Condition ?
-                            Color.fromRGBO(191, 225, 248, 1.0)),
+                            condition
+                                ? Color.fromRGBO(68, 174, 243, 1.0)
+                                : Color.fromRGBO(191, 225, 248, 1.0)),
                     onPressed: () {},
                     child: Container(
                       padding: EdgeInsets.all(15),
@@ -134,7 +150,8 @@ class LoginPage extends StatelessWidget {
                           style: bodyText1.copyWith(
                               fontWeight: FontWeight.w600,
                               decoration: TextDecoration.underline),
-                          recognizer: TapGestureRecognizer())
+                          recognizer: TapGestureRecognizer()
+                            ..onTap = () => Get.to(const SignUp())),
                     ])),
                 SizedBox(
                   height: 127,

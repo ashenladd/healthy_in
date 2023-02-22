@@ -1,8 +1,9 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:healthy_in/theme/fonts.dart';
 
-import '../widgets/app_top_bar.dart';
+import '../../widgets/app_top_bar.dart';
 
 class SignUp extends StatelessWidget {
   const SignUp({super.key});
@@ -91,11 +92,15 @@ class SignUp extends StatelessWidget {
                         style: bodyText1.copyWith(color: Colors.black),
                         children: [
                       TextSpan(
-                          text: " Masuk Di sini",
-                          style: bodyText1.copyWith(
-                              fontWeight: FontWeight.w600,
-                              decoration: TextDecoration.underline),
-                          recognizer: TapGestureRecognizer())
+                        text: " Masuk Di sini",
+                        style: bodyText1.copyWith(
+                            fontWeight: FontWeight.w600,
+                            decoration: TextDecoration.underline),
+                        recognizer: TapGestureRecognizer()
+                          ..onTap = () {
+                            Get.back();
+                          },
+                      )
                     ])),
                 SizedBox(
                   height: 127,

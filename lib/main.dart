@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:healthy_in/Pages/login_page.dart';
+import 'Pages/SignUp Page/sign_up_detail_page.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:healthy_in/Pages/sign_up_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       title: 'healthy.in',
       theme: ThemeData(
           primarySwatch: Colors.blue,
@@ -31,7 +32,7 @@ class MyApp extends StatelessWidget {
                 fontWeight: FontWeight.w400,
               ))),
       debugShowCheckedModeBanner: false,
-      home: SignUp(),
+      home: LoginPage(),
     );
   }
 }
