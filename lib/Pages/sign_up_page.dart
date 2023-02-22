@@ -4,8 +4,8 @@ import 'package:healthy_in/theme/fonts.dart';
 
 import '../widgets/app_top_bar.dart';
 
-class LoginPage extends StatelessWidget {
-  const LoginPage({super.key});
+class SignUp extends StatelessWidget {
+  const SignUp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +20,7 @@ class LoginPage extends StatelessWidget {
               height: h,
               child: Center(
                 child: Text(
-                  "Masuk",
+                  "Daftar",
                   style: headLine1.copyWith(color: Colors.white),
                 ),
               ),
@@ -66,47 +66,8 @@ class LoginPage extends StatelessWidget {
                 SizedBox(
                   height: 8,
                 ),
-                TextField(
-                  obscureText: true,
-                  decoration: InputDecoration(
-                    hintText: "Kata Sandi",
-                    hintStyle: bodyText1.copyWith(
-                        color: Color.fromRGBO(197, 197, 197, 1.0)),
-                    suffixIcon: GestureDetector(
-                      child: Icon(
-                        Icons.remove_red_eye_outlined,
-                        color: Color.fromRGBO(218, 218, 218, 1.0),
-                      ),
-                      onTap: () {},
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(5),
-                        borderSide: const BorderSide(
-                            color: Color.fromRGBO(218, 218, 218, 1.0))),
-                    enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(5),
-                        borderSide: const BorderSide(
-                            color: Color.fromRGBO(218, 218, 218, 1.0))),
-                  ),
-                ),
                 SizedBox(
-                  height: 12,
-                ),
-                Row(
-                  children: [
-                    Expanded(child: Container()),
-                    GestureDetector(
-                      child: Text(
-                        "Lupa Kata Sandi?",
-                        style: subTitle.copyWith(
-                            decoration: TextDecoration.underline),
-                      ),
-                      onTap: () {},
-                    ),
-                  ],
-                ),
-                SizedBox(
-                  height: 76,
+                  height: 160,
                 ),
                 ElevatedButton(
                     style: ElevatedButton.styleFrom(
@@ -118,7 +79,7 @@ class LoginPage extends StatelessWidget {
                       padding: EdgeInsets.all(15),
                       width: w,
                       child: Center(
-                          child: Text("Masuk",
+                          child: Text("Daftar",
                               style: subTitle.copyWith(fontSize: 16))),
                     )),
                 SizedBox(
@@ -126,11 +87,11 @@ class LoginPage extends StatelessWidget {
                 ),
                 RichText(
                     text: TextSpan(
-                        text: "Belum punya akun?",
+                        text: "Sudah punya akun?",
                         style: bodyText1.copyWith(color: Colors.black),
                         children: [
                       TextSpan(
-                          text: " Daftar Di sini",
+                          text: " Masuk Di sini",
                           style: bodyText1.copyWith(
                               fontWeight: FontWeight.w600,
                               decoration: TextDecoration.underline),
