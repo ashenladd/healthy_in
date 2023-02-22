@@ -14,13 +14,25 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  final TextEditingController phoneNumberController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+
+  bool isButtonEnabled = false;
+  bool showPassword = false;
+
+  void changeButtonState() {
+    if (phoneNumberController.text.isNotEmpty &&
+        passwordController.text.isNotEmpty) {
+      if (passwordController.text.length >= 6) {
+        isButtonEnabled = true;
+      } else {
+        isButtonEnabled = false;
+      }
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
-    var phoneNumberController = TextEditingController();
-    var passwordController = TextEditingController();
-    // Need to check everytime
-    bool condition =
-        phoneNumberController.text != "" && passwordController.text != "";
     double h = MediaQuery.of(context).size.height;
     double w = MediaQuery.of(context).size.width;
     return Scaffold(
@@ -53,6 +65,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 TextField(
                   controller: phoneNumberController,
+                  onChanged: (value) => changeButtonState(),
                   keyboardType: TextInputType.number,
                   decoration: InputDecoration(
                     hintText: "Nomor Handphone",
@@ -81,7 +94,8 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 TextField(
                   controller: passwordController,
-                  obscureText: true,
+                  onChanged: (value) => changeButtonState(),
+                  obscureText: !showPassword,
                   decoration: InputDecoration(
                     hintText: "Kata Sandi",
                     hintStyle: bodyText1.copyWith(
@@ -91,7 +105,12 @@ class _LoginPageState extends State<LoginPage> {
                         Icons.remove_red_eye_outlined,
                         color: Color.fromRGBO(218, 218, 218, 1.0),
                       ),
-                      onTap: () {},
+                      onTap: () {
+                        setState(() {
+                          showPassword = !showPassword;
+                        });
+                        ;
+                      },
                     ),
                     focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(5),
@@ -126,7 +145,7 @@ class _LoginPageState extends State<LoginPage> {
                     style: ElevatedButton.styleFrom(
                         elevation: 0,
                         backgroundColor: //Condition ?
-                            condition
+                            isButtonEnabled
                                 ? Color.fromRGBO(68, 174, 243, 1.0)
                                 : Color.fromRGBO(191, 225, 248, 1.0)),
                     onPressed: () {},
