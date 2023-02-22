@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:healthy_in/Pages/login_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,6 +17,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       debugShowCheckedModeBanner: false,
+      home: LoginPage(),
     );
   }
 }
