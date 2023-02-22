@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:healthy_in/Pages/home_page.dart';
 import 'package:healthy_in/Pages/login_page.dart';
 import 'Pages/SignUp Page/sign_up_detail_page.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -32,7 +33,7 @@ class MyApp extends StatelessWidget {
                 fontWeight: FontWeight.w400,
               ))),
       debugShowCheckedModeBanner: false,
-      home: LoginPage(),
+      home: HomePage(),
     );
   }
 }
