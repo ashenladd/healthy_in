@@ -25,6 +25,7 @@ class AppTopBar extends StatelessWidget {
                 colors: [
               Color.fromRGBO(36, 119, 173, 1.0),
               Color.fromRGBO(48, 159, 231, 1.0),
+              Color.fromRGBO(152, 207, 243, 1.0),
               Color.fromRGBO(191, 225, 248, 1.0)
             ])),
         child: child);
