@@ -1,9 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:healthy_in/Pages/Webinar%20Page/detail_pembayaran_page.dart';
+import 'package:healthy_in/Pages/Webinar%20Page/jadwal_webinar_page.dart';
+import 'package:healthy_in/Pages/Webinar%20Page/pilih_metode_pembayaran_page.dart';
 import 'package:healthy_in/Pages/home_page.dart';
 import 'package:healthy_in/Pages/login_page.dart';
+import 'package:healthy_in/Pages/pembayaran_berhasil_page.dart';
 import 'Pages/SignUp Page/sign_up_detail_page.dart';
 import 'package:google_fonts/google_fonts.dart';
+
+import 'Pages/Webinar Page/detail_webinar_page.dart';
+import 'Pages/Webinar Page/pilih_webinar_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -33,7 +40,7 @@ class MyApp extends StatelessWidget {
                 fontWeight: FontWeight.w400,
               ))),
       debugShowCheckedModeBanner: false,
-      home: HomePage(),
+      home: JadwalWebinarPage(),
     );
   }
 }
