@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:healthy_in/Controller/webinar_controller.dart';
+import 'package:healthy_in/Pages/Webinar%20Page/detail_webinar_page.dart';
 import 'package:healthy_in/Pages/Webinar%20Page/pilih_webinar_page.dart';
 import 'package:healthy_in/Pages/profile_page.dart';
 
@@ -144,113 +145,50 @@ class HomePage extends StatelessWidget {
                       return Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: context.allWebinar
-                            .map((webinar) => ListWebinarWidget(
-                                  title: webinar.title,
-                                  image: "assets/${"Rectangle 1.png"}",
-                                  child: Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Row(
-                                        children: [
-                                          Icon(Icons.calendar_today),
-                                          SizedBox(
-                                            width: 5,
-                                          ),
-                                          Text(
-                                            '17 Oktober 2023',
-                                            style: bodyText1.copyWith(
-                                                fontSize: 10),
-                                          ),
-                                        ],
-                                      ),
-                                      Row(
-                                        children: [
-                                          Icon(Icons.access_time),
-                                          SizedBox(
-                                            width: 5,
-                                          ),
-                                          Text(
-                                            '08:00 - 09.00 WIB',
-                                            style: bodyText1.copyWith(
-                                                fontSize: 10),
-                                          ),
-                                        ],
-                                      )
-                                    ],
+                            .take(5)
+                            .map((webinar) => GestureDetector(
+                                  onTap: () {
+                                    Get.toNamed(DetailWebinarPage.routeName,
+                                        arguments: webinar);
+                                  },
+                                  child: ListWebinarWidget(
+                                    title: webinar.title,
+                                    image: "assets/${"Rectangle 1.png"}",
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Row(
+                                          children: [
+                                            Icon(Icons.calendar_today),
+                                            SizedBox(
+                                              width: 5,
+                                            ),
+                                            Text(
+                                              webinar.date,
+                                              style: bodyText1.copyWith(
+                                                  fontSize: 10),
+                                            ),
+                                          ],
+                                        ),
+                                        Row(
+                                          children: [
+                                            Icon(Icons.access_time),
+                                            SizedBox(
+                                              width: 5,
+                                            ),
+                                            Text(
+                                              '${webinar.startTime}-${webinar.endTime} WIB',
+                                              style: bodyText1.copyWith(
+                                                  fontSize: 10),
+                                            ),
+                                          ],
+                                        )
+                                      ],
+                                    ),
                                   ),
                                 ))
                             .toList(),
-                        // children: [
-                        //   ListWebinarWidget(
-                        //     image: "assets/${"Rectangle 1.png"}",
-                        //     title:
-                        //         "Bincang Sehat Bersama Dokter Reisa : Cara Mengatasi Baby Blues Bagi Ibu",
-                        //     child: Row(
-                        //       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        //       children: [
-                        //         Row(
-                        //           children: [
-                        //             Icon(Icons.calendar_today),
-                        //             SizedBox(
-                        //               width: 5,
-                        //             ),
-                        //             Text(
-                        //               '17 Oktober 2023',
-                        //               style: bodyText1.copyWith(fontSize: 10),
-                        //             ),
-                        //           ],
-                        //         ),
-                        //         Row(
-                        //           children: [
-                        //             Icon(Icons.access_time),
-                        //             SizedBox(
-                        //               width: 5,
-                        //             ),
-                        //             Text(
-                        //               '08:00 - 09.00 WIB',
-                        //               style: bodyText1.copyWith(fontSize: 10),
-                        //             ),
-                        //           ],
-                        //         )
-                        //       ],
-                        //     ),
-                        //   ),
-                        //   ListWebinarWidget(
-                        //     image: "assets/${"Rectangle 1.png"}",
-                        //     title:
-                        //         "Bincang Sehat Bersama Dokter Reisa : Cara Mengatasi Baby Blues Bagi Ibu",
-                        //     child: Row(
-                        //       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        //       children: [
-                        //         Row(
-                        //           children: [
-                        //             Icon(Icons.calendar_today),
-                        //             SizedBox(
-                        //               width: 5,
-                        //             ),
-                        //             Text(
-                        //               '17 Oktober 2023',
-                        //               style: bodyText1.copyWith(fontSize: 10),
-                        //             ),
-                        //           ],
-                        //         ),
-                        //         Row(
-                        //           children: [
-                        //             Icon(Icons.access_time),
-                        //             SizedBox(
-                        //               width: 5,
-                        //             ),
-                        //             Text(
-                        //               '08:00 - 09.00 WIB',
-                        //               style: bodyText1.copyWith(fontSize: 10),
-                        //             ),
-                        //           ],
-                        //         )
-                        //       ],
-                        //     ),
-                        //   )
-                        // ],
                       );
                     }),
                   ),
@@ -380,44 +318,33 @@ class HomePage extends StatelessWidget {
                   ),
                   SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
-                    child: Row(children: [
-                      ListWebinarWidget(
-                          image: "assets/${"Rectangle 2.png"}",
-                          title:
-                              "Tips Menghilangkan Stress Karena Tugas yang Menumpuk",
-                          child: Container(
-                            margin: EdgeInsets.all(2),
-                            padding: EdgeInsets.symmetric(
-                                horizontal: 10, vertical: 5),
-                            decoration: BoxDecoration(
-                                border: Border.all(color: blueNormalHover),
-                                color: blueLightHover,
-                                borderRadius: BorderRadius.circular(5)),
-                            child: Text(
-                              "Kesehatan Mental",
-                              style: bodyText1.copyWith(
-                                  fontSize: 10, color: blueNormalHover),
-                            ),
-                          )),
-                      ListWebinarWidget(
-                          image: "assets/${"Rectangle 2.png"}",
-                          title:
-                              "Tips Menghilangkan Stress Karena Tugas yang Menumpuk",
-                          child: Container(
-                            margin: EdgeInsets.all(2),
-                            padding: EdgeInsets.symmetric(
-                                horizontal: 10, vertical: 5),
-                            decoration: BoxDecoration(
-                                border: Border.all(color: blueNormalHover),
-                                color: blueLightHover,
-                                borderRadius: BorderRadius.circular(5)),
-                            child: Text(
-                              "Kesehatan Mental",
-                              style: bodyText1.copyWith(
-                                  fontSize: 10, color: blueNormalHover),
-                            ),
-                          )),
-                    ]),
+                    child: GetBuilder<WebinarController>(builder: (context) {
+                      return Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: context.allWebinar
+                            .skip(5)
+                            .map((webinar) => ListWebinarWidget(
+                                  title: webinar.title,
+                                  image: "assets/${"Rectangle 2.png"}",
+                                  child: Container(
+                                    margin: EdgeInsets.all(2),
+                                    padding: EdgeInsets.symmetric(
+                                        horizontal: 10, vertical: 5),
+                                    decoration: BoxDecoration(
+                                        border:
+                                            Border.all(color: blueNormalHover),
+                                        color: blueLightHover,
+                                        borderRadius: BorderRadius.circular(5)),
+                                    child: Text(
+                                      "Kesehatan Mental",
+                                      style: bodyText1.copyWith(
+                                          fontSize: 10, color: blueNormalHover),
+                                    ),
+                                  ),
+                                ))
+                            .toList(),
+                      );
+                    }),
                   ),
                 ],
               ),

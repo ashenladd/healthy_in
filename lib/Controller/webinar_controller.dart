@@ -9,7 +9,7 @@ class WebinarController extends GetxController {
 
   List<Webinar> get allWebinar => _allWebinar;
 
-  Future<void> getAllWebinar({int size = 5}) async {
+  Future<void> getAllWebinar({int size = 10}) async {
     final Map<String, String> params = {'size': size.toString()};
 
     final response = await http.get(Uri.https(baseUrl, '/v1/meetings', params));
@@ -17,6 +17,8 @@ class WebinarController extends GetxController {
     if (response.statusCode == 200) {
       WebinarResponse webinarResponse = webinarResponseFromJson(response.body);
       _allWebinar = webinarResponse.meetings;
+
+      update();
 
       for (var w in _allWebinar) {
         print(w.id);
@@ -27,8 +29,4 @@ class WebinarController extends GetxController {
       throw Exception('Failed to load webinar');
     }
   }
-
-  // Furtue<void> getWebinarInfo(String id) {
-
-  // }
 }

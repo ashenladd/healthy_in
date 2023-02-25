@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:healthy_in/Pages/Webinar%20Page/jadwal_webinar_page.dart';
+import 'package:healthy_in/Pages/home_page.dart';
+import 'package:healthy_in/Pages/profile_page.dart';
 import 'package:healthy_in/theme/colors.dart';
 import 'package:healthy_in/widgets/app_top_bar.dart';
 import 'package:healthy_in/widgets/item_list_view.dart';
@@ -18,6 +22,67 @@ class PilihWebinarPage extends StatelessWidget {
     double h = MediaQuery.of(context).size.height;
     double w = MediaQuery.of(context).size.width;
     return Scaffold(
+      bottomNavigationBar: BottomAppBar(
+        height: 70,
+        color: Colors.white,
+        child: Container(
+            padding: EdgeInsets.symmetric(
+              vertical: 10,
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                GestureDetector(
+                  onTap: () => Get.toNamed(HomePage.routeName),
+                  child: Column(
+                    children: [
+                      SvgPicture.asset(
+                        'assets/Home.svg',
+                        color: whiteDark,
+                      ),
+                      Text(
+                        'Home',
+                        style: bodyText1.copyWith(color: whiteDark),
+                      )
+                    ],
+                  ),
+                ),
+                Column(
+                  children: [
+                    SvgPicture.asset('assets/Chat.svg'),
+                    Text(
+                      'Chat',
+                      style: bodyText1.copyWith(color: whiteDark),
+                    )
+                  ],
+                ),
+                Column(
+                  children: [
+                    SvgPicture.asset(
+                      'assets/Webinar.svg',
+                      color: blueNormal,
+                    ),
+                    Text(
+                      'Webinar',
+                      style: bodyText1.copyWith(color: blueNormal),
+                    )
+                  ],
+                ),
+                GestureDetector(
+                  onTap: () => Get.toNamed(ProfilePage.routeName),
+                  child: Column(
+                    children: [
+                      SvgPicture.asset('assets/Profile.svg'),
+                      Text(
+                        'Profile',
+                        style: bodyText1.copyWith(color: whiteDark),
+                      )
+                    ],
+                  ),
+                ),
+              ],
+            )),
+      ),
       body: Column(
         children: [
           AppTopBar(
@@ -65,7 +130,9 @@ class PilihWebinarPage extends StatelessWidget {
                           height: 11,
                         ),
                         GestureDetector(
-                          onTap: () {},
+                          onTap: () {
+                            Get.toNamed(JadwalWebinarPage.routeName);
+                          },
                           child: Container(
                             padding: EdgeInsets.symmetric(
                                 horizontal: 15, vertical: 10),

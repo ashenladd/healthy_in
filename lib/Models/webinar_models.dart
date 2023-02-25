@@ -4,6 +4,8 @@
 
 import 'dart:convert';
 
+import 'package:intl/intl.dart';
+
 WebinarResponse webinarResponseFromJson(String str) =>
     WebinarResponse.fromJson(json.decode(str));
 
@@ -54,6 +56,17 @@ class Webinar {
   DateTime endAt;
   bool isPrivate;
   String creatorId;
+
+  final DateFormat dateFormat = DateFormat("dd MMMM yyyy");
+  final DateFormat timeFormat = DateFormat("kk:mm");
+
+  String get startTime => timeFormat.format(startAt);
+  String get endTime => timeFormat.format(endAt);
+  String get date => dateFormat.format(startAt);
+
+  final NumberFormat numberFormat = NumberFormat.decimalPattern("en_us");
+
+  String get stringPrice => numberFormat.format(price);
 
   factory Webinar.fromJson(Map<String, dynamic> json) => Webinar(
         id: json["id"],

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:healthy_in/Pages/Webinar%20Page/pilih_webinar_page.dart';
 import 'package:healthy_in/theme/colors.dart';
 import 'package:healthy_in/theme/fonts.dart';
 import 'package:healthy_in/widgets/app_top_bar.dart';
@@ -16,8 +18,11 @@ class JadwalWebinarPage extends StatelessWidget {
         children: [
           AppTopBar(
             child: GridTileBar(
-              leading:
-                  IconButton(onPressed: () {}, icon: Icon(Icons.arrow_back)),
+              leading: IconButton(
+                  onPressed: () {
+                    Get.toNamed(PilihWebinarPage.routeName);
+                  },
+                  icon: Icon(Icons.arrow_back)),
               title: Text(
                 "Jadwal Webinar",
                 style: headLine1.copyWith(color: Colors.white),

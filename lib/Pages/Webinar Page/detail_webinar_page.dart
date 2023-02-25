@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:healthy_in/Models/webinar_models.dart';
+import 'package:healthy_in/Pages/Webinar%20Page/detail_pembayaran_page.dart';
 
 import 'package:healthy_in/theme/colors.dart';
 import 'package:healthy_in/widgets/app_top_bar.dart';
@@ -6,13 +9,13 @@ import 'package:healthy_in/widgets/app_top_bar.dart';
 import '../../theme/fonts.dart';
 
 class DetailWebinarPage extends StatelessWidget {
+  final Webinar arguments = Get.arguments;
   static String routeName = '/detail-webinar-page';
-  const DetailWebinarPage({super.key});
+
+  DetailWebinarPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    double h = MediaQuery.of(context).size.height;
-    double w = MediaQuery.of(context).size.width;
     return Scaffold(
       bottomNavigationBar: BottomAppBar(
         height: 90,
@@ -58,7 +61,10 @@ class DetailWebinarPage extends StatelessWidget {
                           elevation: 0,
                           backgroundColor: //Condition ?
                               Color.fromRGBO(68, 174, 243, 1.0)),
-                      onPressed: () {},
+                      onPressed: () {
+                        Get.toNamed(DetailPembayaranPage.routeName,
+                            arguments: arguments);
+                      },
                       child: Container(
                         padding: EdgeInsets.all(16.5),
                         child: Center(
@@ -73,7 +79,11 @@ class DetailWebinarPage extends StatelessWidget {
       body: Column(children: [
         AppTopBar(
           child: GridTileBar(
-            leading: IconButton(onPressed: () {}, icon: Icon(Icons.arrow_back)),
+            leading: IconButton(
+                onPressed: () {
+                  Get.back();
+                },
+                icon: Icon(Icons.arrow_back)),
             title: Text(
               "Detail Webinar",
               style: headLine1.copyWith(color: Colors.white),
@@ -117,7 +127,7 @@ class DetailWebinarPage extends StatelessWidget {
                         height: 10,
                       ),
                       Text(
-                        "Bincang Sehat Bersama Dokter Reisa : Cara Mengatasi Baby Blues Bagi Ibu",
+                        arguments.title,
                         style: headLine1.copyWith(fontSize: 16),
                       ),
                       Divider(
@@ -137,7 +147,7 @@ class DetailWebinarPage extends StatelessWidget {
                                       width: 5,
                                     ),
                                     Text(
-                                      '17 Oktober 2023',
+                                      arguments.date,
                                       style: bodyText1,
                                     ),
                                   ],
@@ -152,7 +162,7 @@ class DetailWebinarPage extends StatelessWidget {
                                       width: 5,
                                     ),
                                     Text(
-                                      '08:00-09:00 WIB',
+                                      '${arguments.startTime}-${arguments.endTime} WIB',
                                       style: bodyText1,
                                     ),
                                   ],
@@ -170,7 +180,9 @@ class DetailWebinarPage extends StatelessWidget {
                                       width: 5,
                                     ),
                                     Text(
-                                      'Gratis',
+                                      arguments.price == 0
+                                          ? 'Gratis'
+                                          : "Rp${arguments.stringPrice}",
                                       style: bodyText1,
                                     ),
                                   ],
