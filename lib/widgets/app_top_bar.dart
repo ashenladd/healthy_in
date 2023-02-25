@@ -14,7 +14,7 @@ class AppTopBar extends StatelessWidget {
         // padding: EdgeInsets.only(top: 50),
         width: double.infinity,
         // height: 0.15 * height,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,

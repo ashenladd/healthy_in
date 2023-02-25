@@ -22,7 +22,7 @@ class _SignUpDetailState extends State<SignUpDetail> {
   bool isButtonEnabled = false;
   bool showPassword = false;
   void changeButtonState() {
-    if (nameController.text.length >= 1 &&
+    if (nameController.text.isNotEmpty &&
         passwordController.text.length >= 6 &&
         passwordConfirmController.text.length >= 6 &&
         passwordController.text == passwordConfirmController.text) {
@@ -34,7 +34,6 @@ class _SignUpDetailState extends State<SignUpDetail> {
 
   @override
   Widget build(BuildContext context) {
-    double h = MediaQuery.of(context).size.height;
     double w = MediaQuery.of(context).size.width;
     return Scaffold(
       body: Column(
@@ -50,7 +49,8 @@ class _SignUpDetailState extends State<SignUpDetail> {
           Expanded(
             child: SingleChildScrollView(
               child: Container(
-                margin: EdgeInsets.symmetric(horizontal: 20, vertical: 40),
+                margin:
+                    const EdgeInsets.symmetric(horizontal: 20, vertical: 40),
                 child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -58,19 +58,19 @@ class _SignUpDetailState extends State<SignUpDetail> {
                         'Nama Lengkap',
                         style: bodyText1,
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
                       TextField(
                         controller: nameController,
                         onChanged: (value) => changeButtonState(),
                         decoration: InputDecoration(
-                          prefixIcon: SizedBox(width: 23),
+                          prefixIcon: const SizedBox(width: 23),
                           hintText: "Masukkan nama lengkap",
                           hintStyle: bodyText1.copyWith(
-                              color: Color.fromRGBO(197, 197, 197, 1.0)),
+                              color: const Color.fromRGBO(197, 197, 197, 1.0)),
                           prefixIconConstraints:
-                              BoxConstraints(minWidth: 0, minHeight: 0),
+                              const BoxConstraints(minWidth: 0, minHeight: 0),
                           focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(5),
                               borderSide: const BorderSide(
@@ -81,27 +81,27 @@ class _SignUpDetailState extends State<SignUpDetail> {
                                   color: Color.fromRGBO(218, 218, 218, 1.0))),
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 15,
                       ),
                       Text(
                         'Kata Sandi',
                         style: bodyText1,
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
                       TextField(
-                        obscureText: showPassword,
+                        obscureText: !showPassword,
                         controller: passwordController,
                         onChanged: (value) => changeButtonState(),
                         decoration: InputDecoration(
-                          prefixIcon: SizedBox(width: 23),
+                          prefixIcon: const SizedBox(width: 23),
                           hintText: "Masukkan Kata Sandi",
                           hintStyle: bodyText1.copyWith(
-                              color: Color.fromRGBO(197, 197, 197, 1.0)),
+                              color: const Color.fromRGBO(197, 197, 197, 1.0)),
                           prefixIconConstraints:
-                              BoxConstraints(minWidth: 0, minHeight: 0),
+                              const BoxConstraints(minWidth: 0, minHeight: 0),
                           focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(5),
                               borderSide: const BorderSide(
@@ -111,7 +111,7 @@ class _SignUpDetailState extends State<SignUpDetail> {
                               borderSide: const BorderSide(
                                   color: Color.fromRGBO(218, 218, 218, 1.0))),
                           suffixIcon: GestureDetector(
-                            child: Icon(
+                            child: const Icon(
                               Icons.remove_red_eye_outlined,
                               color: Color.fromRGBO(218, 218, 218, 1.0),
                             ),
@@ -119,19 +119,18 @@ class _SignUpDetailState extends State<SignUpDetail> {
                               setState(() {
                                 showPassword = !showPassword;
                               });
-                              ;
                             },
                           ),
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 15,
                       ),
                       Text(
                         'Ulangi Kata Sandi',
                         style: bodyText1,
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
                       TextField(
@@ -139,12 +138,12 @@ class _SignUpDetailState extends State<SignUpDetail> {
                         controller: passwordConfirmController,
                         onChanged: (value) => changeButtonState(),
                         decoration: InputDecoration(
-                          prefixIcon: SizedBox(width: 23),
+                          prefixIcon: const SizedBox(width: 23),
                           hintText: "Konfirmasi Ulang Kata Sandi",
                           hintStyle: bodyText1.copyWith(
-                              color: Color.fromRGBO(197, 197, 197, 1.0)),
+                              color: const Color.fromRGBO(197, 197, 197, 1.0)),
                           prefixIconConstraints:
-                              BoxConstraints(minWidth: 0, minHeight: 0),
+                              const BoxConstraints(minWidth: 0, minHeight: 0),
                           focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(5),
                               borderSide: const BorderSide(
@@ -160,21 +159,21 @@ class _SignUpDetailState extends State<SignUpDetail> {
             ),
           ),
           Container(
-            margin: EdgeInsets.all(20),
+            margin: const EdgeInsets.all(20),
             child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
                     elevation: 0,
                     backgroundColor: //Condition ?
                         isButtonEnabled
-                            ? Color.fromRGBO(68, 174, 243, 1.0)
-                            : Color.fromRGBO(191, 225, 248, 1.0)),
+                            ? const Color.fromRGBO(68, 174, 243, 1.0)
+                            : const Color.fromRGBO(191, 225, 248, 1.0)),
                 onPressed: () {
                   if (isButtonEnabled) {
                     Get.toNamed(HomePage.routeName);
                   }
                 },
                 child: Container(
-                  padding: EdgeInsets.all(15),
+                  padding: const EdgeInsets.all(15),
                   width: w,
                   child: Center(
                       child: Text("Simpan",

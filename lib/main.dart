@@ -45,7 +45,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       initialRoute: LoginPage.routeName,
       getPages: [
-        GetPage(name: SignUpDetail.routeName, page: () => SignUpDetail()),
+        GetPage(name: SignUpDetail.routeName, page: () => const SignUpDetail()),
         GetPage(name: SignUp.routeName, page: () => SignUp()),
         GetPage(
             name: DetailPembayaranPage.routeName,
@@ -53,20 +53,23 @@ class MyApp extends StatelessWidget {
         GetPage(
             name: DetailWebinarPage.routeName, page: () => DetailWebinarPage()),
         GetPage(
-            name: JadwalWebinarPage.routeName, page: () => JadwalWebinarPage()),
+            name: JadwalWebinarPage.routeName,
+            page: () => const JadwalWebinarPage()),
         GetPage(
-            name: LiveStreamingPage.routeName, page: () => LiveStreamingPage()),
+            name: LiveStreamingPage.routeName,
+            page: () => const LiveStreamingPage()),
         GetPage(
             name: PilihMetodePembayaranPage.routeName,
-            page: () => PilihMetodePembayaranPage()),
+            page: () => const PilihMetodePembayaranPage()),
         GetPage(
-            name: PilihWebinarPage.routeName, page: () => PilihWebinarPage()),
+            name: PilihWebinarPage.routeName,
+            page: () => const PilihWebinarPage()),
         GetPage(name: HomePage.routeName, page: () => HomePage()),
-        GetPage(name: LoginPage.routeName, page: () => LoginPage()),
+        GetPage(name: LoginPage.routeName, page: () => const LoginPage()),
         GetPage(
             name: PembayaranBerhasilPage.routeName,
             page: () => PembayaranBerhasilPage()),
-        GetPage(name: ProfilePage.routeName, page: () => ProfilePage()),
+        GetPage(name: ProfilePage.routeName, page: () => const ProfilePage()),
       ],
     );
   }

@@ -32,7 +32,7 @@ class _PilihMetodePembayaranPageState extends State<PilihMetodePembayaranPage> {
             decoration: BoxDecoration(
                 border: Border(
                     top: BorderSide(color: whiteNormalActive, width: 1))),
-            padding: EdgeInsets.symmetric(vertical: 15, horizontal: 20),
+            padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
             child: Row(
               children: [
                 Expanded(
@@ -41,8 +41,8 @@ class _PilihMetodePembayaranPageState extends State<PilihMetodePembayaranPage> {
                           elevation: 0,
                           backgroundColor: //Condition ?
                               _value != null
-                                  ? Color.fromRGBO(68, 174, 243, 1.0)
-                                  : Color.fromRGBO(191, 225, 248, 1.0)),
+                                  ? const Color.fromRGBO(68, 174, 243, 1.0)
+                                  : const Color.fromRGBO(191, 225, 248, 1.0)),
                       onPressed: () {
                         if (_value != null) {
                           detailPembayaranController.metodePembayaran = _value;
@@ -50,7 +50,7 @@ class _PilihMetodePembayaranPageState extends State<PilihMetodePembayaranPage> {
                         }
                       },
                       child: Container(
-                        padding: EdgeInsets.all(16.5),
+                        padding: const EdgeInsets.all(16.5),
                         child: Center(
                             child: Text("Pilih",
                                 style: subTitle.copyWith(fontSize: 14))),
@@ -67,7 +67,7 @@ class _PilihMetodePembayaranPageState extends State<PilihMetodePembayaranPage> {
                   onPressed: () {
                     Get.back();
                   },
-                  icon: Icon(Icons.arrow_back)),
+                  icon: const Icon(Icons.arrow_back)),
               title: Text(
                 "Metode Pembayaran",
                 style: headLine1.copyWith(color: Colors.white),
@@ -78,7 +78,8 @@ class _PilihMetodePembayaranPageState extends State<PilihMetodePembayaranPage> {
             child: SingleChildScrollView(
               child: Container(
                 width: double.infinity,
-                margin: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+                margin:
+                    const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
                 child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -86,12 +87,12 @@ class _PilihMetodePembayaranPageState extends State<PilihMetodePembayaranPage> {
                         'Bank',
                         style: subTitle.copyWith(fontSize: 16),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
                       Container(
-                        padding:
-                            EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 15, vertical: 10),
                         decoration: BoxDecoration(
                             color: Colors.white,
                             border: Border.all(color: whiteNormalActive),
@@ -111,11 +112,11 @@ class _PilihMetodePembayaranPageState extends State<PilihMetodePembayaranPage> {
                                   _value = value;
                                 });
                               }),
-                          SizedBox(
+                          const SizedBox(
                             width: 15,
                           ),
                           SvgPicture.asset('assets/mandiri.svg'),
-                          SizedBox(
+                          const SizedBox(
                             width: 15,
                           ),
                           Text(
@@ -124,12 +125,12 @@ class _PilihMetodePembayaranPageState extends State<PilihMetodePembayaranPage> {
                           )
                         ]),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
                       Container(
-                        padding:
-                            EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 15, vertical: 10),
                         decoration: BoxDecoration(
                             color: Colors.white,
                             border: Border.all(color: whiteNormalActive),
@@ -149,11 +150,11 @@ class _PilihMetodePembayaranPageState extends State<PilihMetodePembayaranPage> {
                                   _value = value;
                                 });
                               }),
-                          SizedBox(
+                          const SizedBox(
                             width: 15,
                           ),
                           SvgPicture.asset('assets/bca.svg'),
-                          SizedBox(
+                          const SizedBox(
                             width: 15,
                           ),
                           Text(
@@ -162,12 +163,12 @@ class _PilihMetodePembayaranPageState extends State<PilihMetodePembayaranPage> {
                           )
                         ]),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
                       Container(
-                        padding:
-                            EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 15, vertical: 10),
                         decoration: BoxDecoration(
                             color: Colors.white,
                             border: Border.all(color: whiteNormalActive),
@@ -187,11 +188,11 @@ class _PilihMetodePembayaranPageState extends State<PilihMetodePembayaranPage> {
                                   _value = value;
                                 });
                               }),
-                          SizedBox(
+                          const SizedBox(
                             width: 15,
                           ),
                           SvgPicture.asset('assets/bni.svg'),
-                          SizedBox(
+                          const SizedBox(
                             width: 15,
                           ),
                           Text(

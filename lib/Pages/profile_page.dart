@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:healthy_in/Pages/login_page.dart';
 import 'package:healthy_in/theme/colors.dart';
@@ -22,7 +19,7 @@ class ProfilePage extends StatelessWidget {
                 onPressed: () {
                   Get.back();
                 },
-                icon: Icon(Icons.arrow_back)),
+                icon: const Icon(Icons.arrow_back)),
             title: Text(
               "Profile",
               style: headLine1.copyWith(color: Colors.white),
@@ -30,10 +27,10 @@ class ProfilePage extends StatelessWidget {
           ),
         ),
         GestureDetector(
-          onTap: () => Get.off(LoginPage()),
+          onTap: () => Get.off(const LoginPage()),
           child: Container(
-            margin: EdgeInsets.symmetric(vertical: 15, horizontal: 20),
-            padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+            margin: const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
+            padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
             decoration: BoxDecoration(
                 border: Border.all(color: whiteNormalActive),
                 borderRadius: BorderRadius.circular(5)),
@@ -42,7 +39,7 @@ class ProfilePage extends StatelessWidget {
                 children: [
                   Row(
                     children: [
-                      SizedBox(
+                      const SizedBox(
                         width: 10,
                       ),
                       Text(
@@ -52,7 +49,7 @@ class ProfilePage extends StatelessWidget {
                       )
                     ],
                   ),
-                  Icon(
+                  const Icon(
                     Icons.logout,
                     size: 16,
                   )

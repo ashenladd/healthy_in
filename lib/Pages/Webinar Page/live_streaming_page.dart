@@ -28,7 +28,8 @@ class _LiveStreamingPageState extends State<LiveStreamingPage>
       body: Column(children: [
         AppTopBar(
           child: GridTileBar(
-            leading: IconButton(onPressed: () {}, icon: Icon(Icons.arrow_back)),
+            leading: IconButton(
+                onPressed: () {}, icon: const Icon(Icons.arrow_back)),
             title: Text(
               "Live Streaming",
               style: headLine1.copyWith(color: Colors.white),
@@ -39,7 +40,7 @@ class _LiveStreamingPageState extends State<LiveStreamingPage>
           Container(
             width: double.infinity,
             height: 198,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
                 image: DecorationImage(
                     image: AssetImage('assets/Rectangle 1.png'),
                     fit: BoxFit.cover)),
@@ -47,7 +48,7 @@ class _LiveStreamingPageState extends State<LiveStreamingPage>
           Container(
             width: double.infinity,
             color: whiteLight,
-            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
             child: Column(children: [
               Text(
                 "Bincang Sehat Bersama Dokter Reisa : Cara Mengatasi Baby Blues Bagi Ibu",
@@ -55,7 +56,7 @@ class _LiveStreamingPageState extends State<LiveStreamingPage>
               ),
             ]),
           ),
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
           Column(
@@ -63,7 +64,8 @@ class _LiveStreamingPageState extends State<LiveStreamingPage>
               Container(
                 width: double.infinity,
                 color: whiteLight,
-                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
                 child: TabBar(
                   controller: _tabController,
                   tabs: <Widget>[
@@ -84,19 +86,6 @@ class _LiveStreamingPageState extends State<LiveStreamingPage>
               ),
             ],
           ),
-          SingleChildScrollView(
-            child: Container(
-              height: 300,
-              child: TabBarView(controller: _tabController, children: [
-                Text('Telaso'),
-                Text('aa'),
-                Text(
-                  'Telaso',
-                  style: headLine1.copyWith(fontSize: 300),
-                ),
-              ]),
-            ),
-          )
         ])
       ]),
     );

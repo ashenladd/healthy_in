@@ -11,7 +11,6 @@ class JadwalWebinarPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double h = MediaQuery.of(context).size.height;
     return Scaffold(
       backgroundColor: whiteNormal,
       body: Column(
@@ -22,7 +21,7 @@ class JadwalWebinarPage extends StatelessWidget {
                   onPressed: () {
                     Get.toNamed(PilihWebinarPage.routeName);
                   },
-                  icon: Icon(Icons.arrow_back)),
+                  icon: const Icon(Icons.arrow_back)),
               title: Text(
                 "Jadwal Webinar",
                 style: headLine1.copyWith(color: Colors.white),
@@ -31,24 +30,24 @@ class JadwalWebinarPage extends StatelessWidget {
           ),
           Expanded(
             child: ListView.builder(
-              padding: EdgeInsets.symmetric(vertical: 20, horizontal: 30),
+              padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 30),
               itemCount: 3,
               itemBuilder: (context, index) {
                 return GestureDetector(
                   onTap: () {},
                   child: Container(
-                    margin: EdgeInsets.only(bottom: 15),
+                    margin: const EdgeInsets.only(bottom: 15),
                     clipBehavior: Clip.antiAlias,
                     decoration: BoxDecoration(
                         border: Border.all(
-                            color: Color.fromRGBO(197, 197, 197, 1.0)),
+                            color: const Color.fromRGBO(197, 197, 197, 1.0)),
                         borderRadius: BorderRadius.circular(10)),
                     child: Column(
                       children: [
                         Container(
                           height: 150,
                           width: double.infinity,
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                               image: DecorationImage(
                                   image: AssetImage('assets/Rectangle 1.png'),
                                   fit: BoxFit.fill)),
@@ -58,7 +57,7 @@ class JadwalWebinarPage extends StatelessWidget {
                           width: double.infinity,
                           color: Colors.white,
                           child: Container(
-                            margin: EdgeInsets.all(5),
+                            margin: const EdgeInsets.all(5),
                             child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
@@ -83,23 +82,23 @@ class JadwalWebinarPage extends StatelessWidget {
                                                   Icons.calendar_today,
                                                   color: blueNormalActive,
                                                 ),
-                                                SizedBox(
+                                                const SizedBox(
                                                   width: 5,
                                                 ),
-                                                Text('17 Oktober 2023'),
+                                                const Text('17 Oktober 2023'),
                                               ],
                                             ),
-                                            SizedBox(
+                                            const SizedBox(
                                               height: 10,
                                             ),
                                             Row(
                                               children: [
                                                 Icon(Icons.access_time,
                                                     color: blueNormalActive),
-                                                SizedBox(
+                                                const SizedBox(
                                                   width: 5,
                                                 ),
-                                                Text('08.00 - 09.00 WIB'),
+                                                const Text('08.00 - 09.00 WIB'),
                                               ],
                                             ),
                                           ],
@@ -109,7 +108,7 @@ class JadwalWebinarPage extends StatelessWidget {
                                                 color: blueNormal,
                                                 borderRadius:
                                                     BorderRadius.circular(5)),
-                                            padding: EdgeInsets.symmetric(
+                                            padding: const EdgeInsets.symmetric(
                                                 vertical: 5, horizontal: 15),
                                             child: Text(
                                               'Gabung Sekarang',
