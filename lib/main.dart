@@ -35,7 +35,7 @@ class MyApp extends StatelessWidget {
                 fontWeight: FontWeight.w400,
               ))),
       debugShowCheckedModeBanner: false,
-      home: BookingDetail(kata: "",),
+      home: HomePage(),
     );
   }
 }
