@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:healthy_in/theme/colors.dart';
 import 'package:healthy_in/theme/fonts.dart';
 import 'package:healthy_in/widgets/app_top_bar.dart';
@@ -17,7 +18,7 @@ class _LiveStreamingPageState extends State<LiveStreamingPage>
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: 3, vsync: this);
+    _tabController = TabController(length: 5, vsync: this);
   }
 
   @override
@@ -29,7 +30,10 @@ class _LiveStreamingPageState extends State<LiveStreamingPage>
         AppTopBar(
           child: GridTileBar(
             leading: IconButton(
-                onPressed: () {}, icon: const Icon(Icons.arrow_back)),
+                onPressed: () {
+                  Get.back();
+                },
+                icon: const Icon(Icons.arrow_back)),
             title: Text(
               "Live Streaming",
               style: headLine1.copyWith(color: Colors.white),
@@ -42,8 +46,12 @@ class _LiveStreamingPageState extends State<LiveStreamingPage>
             height: 198,
             decoration: const BoxDecoration(
                 image: DecorationImage(
-                    image: AssetImage('assets/Rectangle 1.png'),
+                    image: AssetImage('assets/live_stream.png'),
                     fit: BoxFit.cover)),
+            child: Icon(
+              Icons.play_arrow,
+              color: Colors.white,
+            ),
           ),
           Container(
             width: double.infinity,
@@ -71,15 +79,22 @@ class _LiveStreamingPageState extends State<LiveStreamingPage>
                   tabs: <Widget>[
                     Tab(
                       icon: Icon(
-                        Icons.cloud_outlined,
+                        Icons.back_hand,
                         color: blueNormal,
                       ),
                     ),
                     Tab(
-                      icon: Icon(Icons.beach_access_sharp, color: blueNormal),
+                      icon: Icon(Icons.people, color: blueNormal),
                     ),
                     Tab(
-                      icon: Icon(Icons.brightness_5_sharp, color: blueNormal),
+                      icon: Icon(Icons.mic, color: blueNormal),
+                    ),
+                    Tab(
+                      icon: Icon(Icons.message, color: blueNormal),
+                    ),
+                    Tab(
+                      icon: Icon(Icons.video_camera_back_rounded,
+                          color: blueNormal),
                     ),
                   ],
                 ),

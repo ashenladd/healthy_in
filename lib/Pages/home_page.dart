@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
@@ -13,6 +14,7 @@ import 'package:healthy_in/widgets/item_list_view.dart';
 import '../theme/colors.dart';
 
 class HomePage extends StatelessWidget {
+  User? user = FirebaseAuth.instance.currentUser;
   WebinarController webinarController = Get.put(WebinarController());
 
   static String routeName = '/home-page';
@@ -90,14 +92,14 @@ class HomePage extends StatelessWidget {
                 backgroundColor: Colors.white,
                 child: CircleAvatar(
                   radius: 19,
-                  backgroundColor: Colors.black,
+                  child: Icon(Icons.person),
                 ),
               ),
             ),
             title: Container(
               margin: const EdgeInsets.only(left: 15),
               child: Text(
-                "Hai, David",
+                "Hai, ${user?.displayName}",
                 style: subTitle.copyWith(fontSize: 20),
               ),
             ),

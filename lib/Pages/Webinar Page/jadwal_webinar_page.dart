@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:healthy_in/Pages/Webinar%20Page/live_streaming_page.dart';
 import 'package:healthy_in/Pages/Webinar%20Page/pilih_webinar_page.dart';
 import 'package:healthy_in/theme/colors.dart';
 import 'package:healthy_in/theme/fonts.dart';
@@ -103,19 +104,25 @@ class JadwalWebinarPage extends StatelessWidget {
                                             ),
                                           ],
                                         ),
-                                        Container(
-                                            decoration: BoxDecoration(
-                                                color: blueNormal,
-                                                borderRadius:
-                                                    BorderRadius.circular(5)),
-                                            padding: const EdgeInsets.symmetric(
-                                                vertical: 5, horizontal: 15),
-                                            child: Text(
-                                              'Gabung Sekarang',
-                                              style: subTitle.copyWith(
-                                                  fontSize: 12,
-                                                  color: blueLight),
-                                            ))
+                                        GestureDetector(
+                                          onTap: () => Get.toNamed(
+                                              LiveStreamingPage.routeName),
+                                          child: Container(
+                                              decoration: BoxDecoration(
+                                                  color: blueNormal,
+                                                  borderRadius:
+                                                      BorderRadius.circular(5)),
+                                              padding:
+                                                  const EdgeInsets.symmetric(
+                                                      vertical: 5,
+                                                      horizontal: 15),
+                                              child: Text(
+                                                'Gabung Sekarang',
+                                                style: subTitle.copyWith(
+                                                    fontSize: 12,
+                                                    color: blueLight),
+                                              )),
+                                        )
                                       ]),
                                 ]),
                           ),

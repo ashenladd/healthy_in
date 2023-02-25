@@ -1,8 +1,11 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:healthy_in/Controller/auth_controller.dart';
 import 'package:healthy_in/Pages/SignUp%20Page/sign_up_page.dart';
 import 'package:healthy_in/Pages/home_page.dart';
+import 'package:healthy_in/theme/colors.dart';
 import 'package:healthy_in/theme/fonts.dart';
 
 import '../widgets/app_top_bar.dart';
@@ -35,6 +38,7 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     double w = MediaQuery.of(context).size.width;
     return Scaffold(
+      backgroundColor: whiteNormal,
       body: Column(
         children: [
           AppTopBar(
@@ -174,6 +178,64 @@ class _LoginPageState extends State<LoginPage> {
                             recognizer: TapGestureRecognizer()
                               ..onTap = () => Get.toNamed(SignUp.routeName)),
                       ])),
+                  const SizedBox(
+                    height: 15,
+                  ),
+                  Row(
+                    children: [
+                      Expanded(
+                          child: Divider(
+                        thickness: 1,
+                      )),
+                      SizedBox(
+                        width: 5,
+                      ),
+                      Text(
+                        'or login with',
+                        style: bodyText1.copyWith(
+                            fontSize: 10, color: greyLightActive),
+                      ),
+                      SizedBox(
+                        width: 5,
+                      ),
+                      Expanded(
+                          child: Divider(
+                        thickness: 1,
+                      ))
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 5,
+                  ),
+                  ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                          elevation: 0,
+                          backgroundColor: //Condition ?
+                              whiteNormal,
+                          side: const BorderSide(
+                            width: 1.0,
+                            color: Colors.orangeAccent,
+                          )),
+                      onPressed: () async {
+                        final AuthController authController =
+                            Get.find<AuthController>();
+                        await authController.signInWithGoogle();
+                        Get.toNamed(HomePage.routeName);
+                        ;
+                      },
+                      child: Container(
+                        padding: const EdgeInsets.all(15),
+                        width: w,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            SvgPicture.asset('assets/Google.svg'),
+                            Text("oogle",
+                                style: subTitle.copyWith(
+                                    fontSize: 16, color: Colors.orangeAccent)),
+                          ],
+                        ),
+                      )),
                   const SizedBox(
                     height: 127,
                   ),
