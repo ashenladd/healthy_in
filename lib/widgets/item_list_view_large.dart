@@ -26,10 +26,10 @@ class ItemListViewLarge extends StatelessWidget {
             return GestureDetector(
               onTap: () {},
               child: Container(
-                margin: EdgeInsets.only(right: 17),
+                margin: const EdgeInsets.only(right: 17),
                 decoration: BoxDecoration(
-                    border:
-                        Border.all(color: Color.fromRGBO(197, 197, 197, 1.0)),
+                    border: Border.all(
+                        color: const Color.fromRGBO(197, 197, 197, 1.0)),
                     borderRadius: BorderRadius.circular(5)),
                 height: 230,
                 width: 260,
@@ -47,7 +47,7 @@ class ItemListViewLarge extends StatelessWidget {
                       width: 260,
                       color: Colors.white,
                       child: Container(
-                        margin: EdgeInsets.all(5),
+                        margin: const EdgeInsets.all(5),
                         child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [title, child]),

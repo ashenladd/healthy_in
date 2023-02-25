@@ -26,7 +26,7 @@ class HomePage extends StatelessWidget {
         height: 70,
         color: Colors.white,
         child: Container(
-            padding: EdgeInsets.symmetric(
+            padding: const EdgeInsets.symmetric(
               vertical: 10,
             ),
             child: Row(
@@ -80,13 +80,13 @@ class HomePage extends StatelessWidget {
       body: Column(children: [
         AppTopBar(
             child: Container(
-          margin: EdgeInsets.symmetric(horizontal: 20),
+          margin: const EdgeInsets.symmetric(horizontal: 20),
           child: GridTileBar(
             leading: GestureDetector(
               onTap: () {
                 Get.toNamed(ProfilePage.routeName);
               },
-              child: CircleAvatar(
+              child: const CircleAvatar(
                 backgroundColor: Colors.white,
                 child: CircleAvatar(
                   radius: 19,
@@ -95,13 +95,13 @@ class HomePage extends StatelessWidget {
               ),
             ),
             title: Container(
-              margin: EdgeInsets.only(left: 15),
+              margin: const EdgeInsets.only(left: 15),
               child: Text(
                 "Hai, David",
                 style: subTitle.copyWith(fontSize: 20),
               ),
             ),
-            trailing: Icon(
+            trailing: const Icon(
               Icons.notifications_outlined,
               size: 35,
             ),
@@ -110,7 +110,7 @@ class HomePage extends StatelessWidget {
         Expanded(
           child: SingleChildScrollView(
             child: Container(
-              margin: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+              margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -118,9 +118,9 @@ class HomePage extends StatelessWidget {
                     decoration: InputDecoration(
                       hintText: "Cari",
                       hintStyle: bodyText1.copyWith(
-                          color: Color.fromRGBO(197, 197, 197, 1.0),
+                          color: const Color.fromRGBO(197, 197, 197, 1.0),
                           fontSize: 14),
-                      prefixIcon: Icon(Icons.search),
+                      prefixIcon: const Icon(Icons.search),
                       focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(5),
                           borderSide: const BorderSide(
@@ -131,12 +131,12 @@ class HomePage extends StatelessWidget {
                               color: Color.fromRGBO(218, 218, 218, 1.0))),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 24,
                   ),
                   Text('Webinar Untukmu',
                       style: subTitle.copyWith(fontSize: 16)),
-                  SizedBox(
+                  const SizedBox(
                     height: 15,
                   ),
                   SingleChildScrollView(
@@ -160,8 +160,8 @@ class HomePage extends StatelessWidget {
                                       children: [
                                         Row(
                                           children: [
-                                            Icon(Icons.calendar_today),
-                                            SizedBox(
+                                            const Icon(Icons.calendar_today),
+                                            const SizedBox(
                                               width: 5,
                                             ),
                                             Text(
@@ -173,8 +173,8 @@ class HomePage extends StatelessWidget {
                                         ),
                                         Row(
                                           children: [
-                                            Icon(Icons.access_time),
-                                            SizedBox(
+                                            const Icon(Icons.access_time),
+                                            const SizedBox(
                                               width: 5,
                                             ),
                                             Text(
@@ -192,128 +192,117 @@ class HomePage extends StatelessWidget {
                       );
                     }),
                   ),
-                  SizedBox(
-                    height: 27,
+                  const SizedBox(
+                    height: 24,
                   ),
                   Text('Kategori Dokter',
                       style: subTitle.copyWith(fontSize: 16)),
-                  SizedBox(
+                  const SizedBox(
                     height: 15,
                   ),
-                  Container(
-                    child: Row(
-                      children: [
-                        Container(
-                          child: Column(
-                            children: [
-                              CircleAvatar(
-                                radius: 30,
-                                backgroundColor: blueNormal,
-                                child: CircleAvatar(
-                                  child: ClipOval(
-                                      child:
-                                          SvgPicture.asset('assets/Bidan.svg')),
-                                  radius: 29,
-                                  backgroundColor: blueLightActive,
-                                ),
-                              ),
-                              SizedBox(
-                                height: 10,
-                              ),
-                              Text(
-                                'Bidan',
-                                style: bodyText1,
-                              )
-                            ],
+                  Row(
+                    children: [
+                      Column(
+                        children: [
+                          CircleAvatar(
+                            radius: 30,
+                            backgroundColor: blueNormal,
+                            child: CircleAvatar(
+                              radius: 29,
+                              backgroundColor: blueLightActive,
+                              child: ClipOval(
+                                  child: SvgPicture.asset('assets/Bidan.svg')),
+                            ),
                           ),
-                        ),
-                        SizedBox(
-                          width: 30,
-                        ),
-                        Container(
-                          child: Column(
-                            children: [
-                              CircleAvatar(
-                                radius: 30,
-                                backgroundColor: blueNormal,
-                                child: CircleAvatar(
-                                  child: ClipOval(
-                                      child: SvgPicture.asset(
-                                          'assets/Dokter_Gigi.svg')),
-                                  radius: 29,
-                                  backgroundColor: blueLightActive,
-                                ),
-                              ),
-                              SizedBox(
-                                height: 10,
-                              ),
-                              Text(
-                                'Dokter Gigi',
-                                style: bodyText1,
-                              )
-                            ],
+                          const SizedBox(
+                            height: 10,
                           ),
-                        ),
-                        SizedBox(
-                          width: 30,
-                        ),
-                        Container(
-                          child: Column(
-                            children: [
-                              CircleAvatar(
-                                radius: 30,
-                                backgroundColor: blueNormal,
-                                child: CircleAvatar(
-                                  child: ClipOval(
-                                      child: SvgPicture.asset(
-                                          'assets/Dokter_THT.svg')),
-                                  radius: 29,
-                                  backgroundColor: blueLightActive,
-                                ),
-                              ),
-                              SizedBox(
-                                height: 10,
-                              ),
-                              Text(
-                                'Dokter THT',
-                                style: bodyText1,
-                              )
-                            ],
+                          Text(
+                            'Bidan',
+                            style: bodyText1,
+                          )
+                        ],
+                      ),
+                      const SizedBox(
+                        width: 30,
+                      ),
+                      Column(
+                        children: [
+                          CircleAvatar(
+                            radius: 30,
+                            backgroundColor: blueNormal,
+                            child: CircleAvatar(
+                              radius: 29,
+                              backgroundColor: blueLightActive,
+                              child: ClipOval(
+                                  child: SvgPicture.asset(
+                                      'assets/Dokter_Gigi.svg')),
+                            ),
                           ),
-                        ),
-                        SizedBox(
-                          width: 30,
-                        ),
-                        Container(
-                          child: Column(
-                            children: [
-                              CircleAvatar(
-                                radius: 30,
-                                backgroundColor: blueNormal,
-                                child: CircleAvatar(
-                                  child: Icon(Icons.more_horiz),
-                                  radius: 29,
-                                  backgroundColor: blueLightActive,
-                                ),
-                              ),
-                              SizedBox(
-                                height: 10,
-                              ),
-                              Text(
-                                'Lainnya',
-                                style: bodyText1,
-                              )
-                            ],
+                          const SizedBox(
+                            height: 10,
                           ),
-                        ),
-                      ],
-                    ),
+                          Text(
+                            'Dokter Gigi',
+                            style: bodyText1,
+                          )
+                        ],
+                      ),
+                      const SizedBox(
+                        width: 30,
+                      ),
+                      Column(
+                        children: [
+                          CircleAvatar(
+                            radius: 30,
+                            backgroundColor: blueNormal,
+                            child: CircleAvatar(
+                              radius: 29,
+                              backgroundColor: blueLightActive,
+                              child: ClipOval(
+                                  child: SvgPicture.asset(
+                                      'assets/Dokter_THT.svg')),
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          Text(
+                            'Dokter THT',
+                            style: bodyText1,
+                          )
+                        ],
+                      ),
+                      const SizedBox(
+                        width: 30,
+                      ),
+                      Column(
+                        children: [
+                          CircleAvatar(
+                            radius: 30,
+                            backgroundColor: blueNormal,
+                            child: CircleAvatar(
+                              radius: 29,
+                              backgroundColor: blueLightActive,
+                              child: const Icon(Icons.more_horiz),
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          Text(
+                            'Lainnya',
+                            style: bodyText1,
+                          )
+                        ],
+                      ),
+                    ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 25,
                   ),
                   Text('Baca Artikel', style: subTitle.copyWith(fontSize: 16)),
-                  SizedBox(
+                  const SizedBox(
                     height: 15,
                   ),
                   SingleChildScrollView(
@@ -327,8 +316,8 @@ class HomePage extends StatelessWidget {
                                   title: webinar.title,
                                   image: "assets/${"Rectangle 2.png"}",
                                   child: Container(
-                                    margin: EdgeInsets.all(2),
-                                    padding: EdgeInsets.symmetric(
+                                    margin: const EdgeInsets.all(2),
+                                    padding: const EdgeInsets.symmetric(
                                         horizontal: 10, vertical: 5),
                                     decoration: BoxDecoration(
                                         border:

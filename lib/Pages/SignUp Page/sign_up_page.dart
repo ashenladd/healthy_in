@@ -29,7 +29,6 @@ class _SignUpState extends State<SignUp> {
 
   @override
   Widget build(BuildContext context) {
-    double h = MediaQuery.of(context).size.height;
     double w = MediaQuery.of(context).size.width;
     return Scaffold(
       body: Column(
@@ -45,17 +44,18 @@ class _SignUpState extends State<SignUp> {
           Expanded(
             child: SingleChildScrollView(
               child: Container(
-                margin: EdgeInsets.symmetric(horizontal: 20, vertical: 40),
+                margin:
+                    const EdgeInsets.symmetric(horizontal: 20, vertical: 40),
                 child: Column(children: [
                   Container(
-                    margin: EdgeInsets.symmetric(horizontal: 10),
+                    margin: const EdgeInsets.symmetric(horizontal: 10),
                     child: Text(
                       'Silahkan masukkan nomor handphone & kata sandi akun Anda yang telah terdaftar untuk masuk ke aplikasi',
                       style: bodyText1,
                       textAlign: TextAlign.center,
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 42,
                   ),
                   TextField(
@@ -65,15 +65,15 @@ class _SignUpState extends State<SignUp> {
                     decoration: InputDecoration(
                       hintText: "Nomor Handphone",
                       hintStyle: bodyText1.copyWith(
-                          color: Color.fromRGBO(197, 197, 197, 1.0)),
+                          color: const Color.fromRGBO(197, 197, 197, 1.0)),
                       prefixIcon: Padding(
-                          padding: EdgeInsets.all(15),
+                          padding: const EdgeInsets.all(15),
                           child: Text(
                             '+62 ',
                             style: subTitle,
                           )),
                       prefixIconConstraints:
-                          BoxConstraints(minWidth: 0, minHeight: 0),
+                          const BoxConstraints(minWidth: 0, minHeight: 0),
                       focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(5),
                           borderSide: const BorderSide(
@@ -84,10 +84,10 @@ class _SignUpState extends State<SignUp> {
                               color: Color.fromRGBO(218, 218, 218, 1.0))),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 8,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 160,
                   ),
                   ElevatedButton(
@@ -95,21 +95,21 @@ class _SignUpState extends State<SignUp> {
                           elevation: 0,
                           backgroundColor: //Condition ?
                               isButtonEnabled
-                                  ? Color.fromRGBO(68, 174, 243, 1.0)
-                                  : Color.fromRGBO(191, 225, 248, 1.0)),
+                                  ? const Color.fromRGBO(68, 174, 243, 1.0)
+                                  : const Color.fromRGBO(191, 225, 248, 1.0)),
                       onPressed: () {
                         if (isButtonEnabled) {
                           Get.toNamed(SignUpDetail.routeName);
                         }
                       },
                       child: Container(
-                        padding: EdgeInsets.all(15),
+                        padding: const EdgeInsets.all(15),
                         width: w,
                         child: Center(
                             child: Text("Daftar",
                                 style: subTitle.copyWith(fontSize: 16))),
                       )),
-                  SizedBox(
+                  const SizedBox(
                     height: 15,
                   ),
                   RichText(
@@ -128,11 +128,11 @@ class _SignUpState extends State<SignUp> {
                             },
                         )
                       ])),
-                  SizedBox(
+                  const SizedBox(
                     height: 127,
                   ),
                   Container(
-                    margin: EdgeInsets.symmetric(horizontal: 10),
+                    margin: const EdgeInsets.symmetric(horizontal: 10),
                     child: RichText(
                       text: TextSpan(
                           text: "Ketika masuk atau mendaftar, saya menyetujui",

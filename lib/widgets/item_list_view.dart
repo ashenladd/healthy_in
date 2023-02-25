@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:healthy_in/Pages/Webinar%20Page/detail_webinar_page.dart';
 import 'package:healthy_in/theme/fonts.dart';
 
 class ListWebinarWidget extends StatelessWidget {
@@ -18,9 +16,9 @@ class ListWebinarWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(right: 17),
+      margin: const EdgeInsets.only(right: 17),
       decoration: BoxDecoration(
-          border: Border.all(color: Color.fromRGBO(197, 197, 197, 1.0)),
+          border: Border.all(color: const Color.fromRGBO(197, 197, 197, 1.0)),
           borderRadius: BorderRadius.circular(5)),
       // height: 202,
       width: 260,
@@ -38,7 +36,7 @@ class ListWebinarWidget extends StatelessWidget {
             width: 260,
             color: Colors.white,
             child: Container(
-              margin: EdgeInsets.all(5),
+              margin: const EdgeInsets.all(5),
               child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [

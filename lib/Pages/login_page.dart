@@ -33,7 +33,6 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
-    double h = MediaQuery.of(context).size.height;
     double w = MediaQuery.of(context).size.width;
     return Scaffold(
       body: Column(
@@ -49,17 +48,18 @@ class _LoginPageState extends State<LoginPage> {
           Expanded(
             child: SingleChildScrollView(
               child: Container(
-                margin: EdgeInsets.symmetric(horizontal: 20, vertical: 40),
+                margin:
+                    const EdgeInsets.symmetric(horizontal: 20, vertical: 40),
                 child: Column(children: [
                   Container(
-                    margin: EdgeInsets.symmetric(horizontal: 10),
+                    margin: const EdgeInsets.symmetric(horizontal: 10),
                     child: Text(
                       'Silahkan masukkan nomor handphone & kata sandi akun Anda yang telah terdaftar untuk masuk ke aplikasi',
                       style: bodyText1,
                       textAlign: TextAlign.center,
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 42,
                   ),
                   TextField(
@@ -69,15 +69,15 @@ class _LoginPageState extends State<LoginPage> {
                     decoration: InputDecoration(
                       hintText: "Nomor Handphone",
                       hintStyle: bodyText1.copyWith(
-                          color: Color.fromRGBO(197, 197, 197, 1.0)),
+                          color: const Color.fromRGBO(197, 197, 197, 1.0)),
                       prefixIcon: Padding(
-                          padding: EdgeInsets.all(15),
+                          padding: const EdgeInsets.all(15),
                           child: Text(
                             '+62 ',
                             style: subTitle,
                           )),
                       prefixIconConstraints:
-                          BoxConstraints(minWidth: 0, minHeight: 0),
+                          const BoxConstraints(minWidth: 0, minHeight: 0),
                       focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(5),
                           borderSide: const BorderSide(
@@ -88,7 +88,7 @@ class _LoginPageState extends State<LoginPage> {
                               color: Color.fromRGBO(218, 218, 218, 1.0))),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 8,
                   ),
                   TextField(
@@ -98,9 +98,9 @@ class _LoginPageState extends State<LoginPage> {
                     decoration: InputDecoration(
                       hintText: "Kata Sandi",
                       hintStyle: bodyText1.copyWith(
-                          color: Color.fromRGBO(197, 197, 197, 1.0)),
+                          color: const Color.fromRGBO(197, 197, 197, 1.0)),
                       suffixIcon: GestureDetector(
-                        child: Icon(
+                        child: const Icon(
                           Icons.remove_red_eye_outlined,
                           color: Color.fromRGBO(218, 218, 218, 1.0),
                         ),
@@ -108,7 +108,6 @@ class _LoginPageState extends State<LoginPage> {
                           setState(() {
                             showPassword = !showPassword;
                           });
-                          ;
                         },
                       ),
                       focusedBorder: OutlineInputBorder(
@@ -121,7 +120,7 @@ class _LoginPageState extends State<LoginPage> {
                               color: Color.fromRGBO(218, 218, 218, 1.0))),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 12,
                   ),
                   Row(
@@ -137,7 +136,7 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 76,
                   ),
                   ElevatedButton(
@@ -145,21 +144,21 @@ class _LoginPageState extends State<LoginPage> {
                           elevation: 0,
                           backgroundColor: //Condition ?
                               isButtonEnabled
-                                  ? Color.fromRGBO(68, 174, 243, 1.0)
-                                  : Color.fromRGBO(191, 225, 248, 1.0)),
+                                  ? const Color.fromRGBO(68, 174, 243, 1.0)
+                                  : const Color.fromRGBO(191, 225, 248, 1.0)),
                       onPressed: () {
                         if (isButtonEnabled) {
                           Get.toNamed(HomePage.routeName);
                         }
                       },
                       child: Container(
-                        padding: EdgeInsets.all(15),
+                        padding: const EdgeInsets.all(15),
                         width: w,
                         child: Center(
                             child: Text("Masuk",
                                 style: subTitle.copyWith(fontSize: 16))),
                       )),
-                  SizedBox(
+                  const SizedBox(
                     height: 15,
                   ),
                   RichText(
@@ -175,11 +174,11 @@ class _LoginPageState extends State<LoginPage> {
                             recognizer: TapGestureRecognizer()
                               ..onTap = () => Get.toNamed(SignUp.routeName)),
                       ])),
-                  SizedBox(
+                  const SizedBox(
                     height: 127,
                   ),
                   Container(
-                    margin: EdgeInsets.symmetric(horizontal: 10),
+                    margin: const EdgeInsets.symmetric(horizontal: 10),
                     child: RichText(
                       text: TextSpan(
                           text: "Ketika masuk atau mendaftar, saya menyetujui",

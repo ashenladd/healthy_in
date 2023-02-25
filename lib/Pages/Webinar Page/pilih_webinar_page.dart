@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:healthy_in/Pages/Webinar%20Page/jadwal_webinar_page.dart';
@@ -8,7 +6,6 @@ import 'package:healthy_in/Pages/home_page.dart';
 import 'package:healthy_in/Pages/profile_page.dart';
 import 'package:healthy_in/theme/colors.dart';
 import 'package:healthy_in/widgets/app_top_bar.dart';
-import 'package:healthy_in/widgets/item_list_view.dart';
 
 import '../../theme/fonts.dart';
 import '../../widgets/item_list_view_large.dart';
@@ -19,14 +16,13 @@ class PilihWebinarPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double h = MediaQuery.of(context).size.height;
     double w = MediaQuery.of(context).size.width;
     return Scaffold(
       bottomNavigationBar: BottomAppBar(
         height: 70,
         color: Colors.white,
         child: Container(
-            padding: EdgeInsets.symmetric(
+            padding: const EdgeInsets.symmetric(
               vertical: 10,
             ),
             child: Row(
@@ -88,7 +84,8 @@ class PilihWebinarPage extends StatelessWidget {
           AppTopBar(
             child: GridTileBar(
               leading: IconButton(
-                  onPressed: () => Get.back(), icon: Icon(Icons.arrow_back)),
+                  onPressed: () => Get.back(),
+                  icon: const Icon(Icons.arrow_back)),
               title: Text(
                 "Webinar",
                 style: headLine1.copyWith(color: Colors.white),
@@ -98,7 +95,8 @@ class PilihWebinarPage extends StatelessWidget {
           Expanded(
             child: SingleChildScrollView(
               child: Container(
-                  margin: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+                  margin:
+                      const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
                   child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -106,9 +104,9 @@ class PilihWebinarPage extends StatelessWidget {
                           decoration: InputDecoration(
                             hintText: "Cari Webinar",
                             hintStyle: bodyText1.copyWith(
-                                color: Color.fromRGBO(197, 197, 197, 1.0),
+                                color: const Color.fromRGBO(197, 197, 197, 1.0),
                                 fontSize: 14),
-                            prefixIcon: Icon(Icons.search),
+                            prefixIcon: const Icon(Icons.search),
                             focusedBorder: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(5),
                                 borderSide: const BorderSide(
@@ -119,14 +117,14 @@ class PilihWebinarPage extends StatelessWidget {
                                     color: Color.fromRGBO(218, 218, 218, 1.0))),
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 23,
                         ),
                         Text(
                           'Jadwal Webinarmu',
                           style: subTitle.copyWith(fontSize: 16),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 11,
                         ),
                         GestureDetector(
@@ -134,7 +132,7 @@ class PilihWebinarPage extends StatelessWidget {
                             Get.toNamed(JadwalWebinarPage.routeName);
                           },
                           child: Container(
-                            padding: EdgeInsets.symmetric(
+                            padding: const EdgeInsets.symmetric(
                                 horizontal: 15, vertical: 10),
                             height: 100,
                             width: w,
@@ -144,7 +142,7 @@ class PilihWebinarPage extends StatelessWidget {
                                 color: blueLight),
                             child: ListTile(
                               contentPadding:
-                                  EdgeInsets.only(left: 0, right: 0),
+                                  const EdgeInsets.only(left: 0, right: 0),
                               leading: Image.asset('assets/CekJadwal.png'),
                               title: Text(
                                 "Cek Jadwal",
@@ -154,18 +152,18 @@ class PilihWebinarPage extends StatelessWidget {
                                 "Cek jadwal webinarmu sekarang. Jangan sampai ketinggalan!",
                                 style: bodyText1.copyWith(color: greyNormal),
                               ),
-                              trailing: Icon(Icons.arrow_forward_ios),
+                              trailing: const Icon(Icons.arrow_forward_ios),
                             ),
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 28,
                         ),
                         Text(
                           "Webinar Berlangsung",
                           style: headLine1.copyWith(fontSize: 16),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 10,
                         ),
                         ItemListViewLarge(
@@ -175,9 +173,9 @@ class PilihWebinarPage extends StatelessWidget {
                             style: subTitle.copyWith(fontSize: 12),
                             maxLines: 2,
                           ),
-                          image: AssetImage('assets/Rectangle 1.png'),
+                          image: const AssetImage('assets/Rectangle 1.png'),
                           child: Container(
-                            padding: EdgeInsets.symmetric(horizontal: 3),
+                            padding: const EdgeInsets.symmetric(horizontal: 3),
                             child: Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
@@ -187,7 +185,7 @@ class PilihWebinarPage extends StatelessWidget {
                                         CrossAxisAlignment.start,
                                     children: [
                                       Row(
-                                        children: [
+                                        children: const [
                                           Icon(Icons.calendar_today),
                                           SizedBox(
                                             width: 5,
@@ -195,11 +193,11 @@ class PilihWebinarPage extends StatelessWidget {
                                           Text('17 Oktober 2023'),
                                         ],
                                       ),
-                                      SizedBox(
+                                      const SizedBox(
                                         height: 5,
                                       ),
                                       Row(
-                                        children: [
+                                        children: const [
                                           Icon(Icons.access_time),
                                           SizedBox(
                                             width: 5,
@@ -209,18 +207,18 @@ class PilihWebinarPage extends StatelessWidget {
                                       )
                                     ],
                                   ),
-                                  Text('Gratis')
+                                  const Text('Gratis')
                                 ]),
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 30,
                         ),
                         Text(
                           "Webinar Untukmu",
                           style: headLine1.copyWith(fontSize: 16),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 10,
                         ),
                         ItemListViewLarge(
@@ -230,7 +228,7 @@ class PilihWebinarPage extends StatelessWidget {
                             style: subTitle.copyWith(fontSize: 12),
                             maxLines: 2,
                           ),
-                          image: AssetImage('assets/Rectangle 1.png'),
+                          image: const AssetImage('assets/Rectangle 1.png'),
                           child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
@@ -238,7 +236,7 @@ class PilihWebinarPage extends StatelessWidget {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Row(
-                                      children: [
+                                      children: const [
                                         Icon(Icons.calendar_today),
                                         SizedBox(
                                           width: 5,
@@ -246,11 +244,11 @@ class PilihWebinarPage extends StatelessWidget {
                                         Text('17 Oktober 2023'),
                                       ],
                                     ),
-                                    SizedBox(
+                                    const SizedBox(
                                       height: 5,
                                     ),
                                     Row(
-                                      children: [
+                                      children: const [
                                         Icon(Icons.access_time),
                                         SizedBox(
                                           width: 5,
@@ -260,7 +258,7 @@ class PilihWebinarPage extends StatelessWidget {
                                     )
                                   ],
                                 ),
-                                Text('Gratis')
+                                const Text('Gratis')
                               ]),
                         ),
                       ])),

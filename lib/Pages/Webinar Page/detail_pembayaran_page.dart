@@ -27,7 +27,7 @@ class DetailPembayaranPage extends StatelessWidget {
             decoration: BoxDecoration(
                 border: Border(
                     top: BorderSide(color: whiteNormalActive, width: 1))),
-            padding: EdgeInsets.symmetric(vertical: 15, horizontal: 20),
+            padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
             child: Row(
               children: [
                 Expanded(
@@ -35,13 +35,13 @@ class DetailPembayaranPage extends StatelessWidget {
                       style: ElevatedButton.styleFrom(
                           elevation: 0,
                           backgroundColor: //Condition ?
-                              Color.fromRGBO(68, 174, 243, 1.0)),
+                              const Color.fromRGBO(68, 174, 243, 1.0)),
                       onPressed: () {
                         Get.toNamed(PembayaranBerhasilPage.routeName,
                             arguments: arguments);
                       },
                       child: Container(
-                        padding: EdgeInsets.all(16.5),
+                        padding: const EdgeInsets.all(16.5),
                         child: Center(
                             child: Text("Bayar",
                                 style: subTitle.copyWith(fontSize: 14))),
@@ -58,7 +58,7 @@ class DetailPembayaranPage extends StatelessWidget {
                 onPressed: () {
                   Get.back();
                 },
-                icon: Icon(Icons.arrow_back)),
+                icon: const Icon(Icons.arrow_back)),
             title: Text(
               "Detail Pembayaran",
               style: headLine1.copyWith(color: Colors.white),
@@ -72,9 +72,10 @@ class DetailPembayaranPage extends StatelessWidget {
                 Container(
                   width: double.infinity,
                   color: whiteLight,
-                  padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
                   child: ListTile(
-                    contentPadding: EdgeInsets.only(left: 0, right: 0),
+                    contentPadding: const EdgeInsets.only(left: 0, right: 0),
                     leading: ClipRRect(
                       borderRadius: BorderRadius.circular(5),
                       child: Image.asset(
@@ -97,13 +98,14 @@ class DetailPembayaranPage extends StatelessWidget {
                     ),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 Container(
                   width: double.infinity,
                   color: whiteLight,
-                  padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -111,7 +113,7 @@ class DetailPembayaranPage extends StatelessWidget {
                         "Detail Partisipan",
                         style: headLine1.copyWith(fontSize: 16),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
                       Row(
@@ -127,7 +129,7 @@ class DetailPembayaranPage extends StatelessWidget {
                           )
                         ],
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
                       Row(
@@ -143,7 +145,7 @@ class DetailPembayaranPage extends StatelessWidget {
                           )
                         ],
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
                       Row(
@@ -162,15 +164,16 @@ class DetailPembayaranPage extends StatelessWidget {
                     ],
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 Container(
                   width: double.infinity,
                   color: whiteLight,
-                  padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
                   child: Container(
-                    padding: EdgeInsets.all(10),
+                    padding: const EdgeInsets.all(10),
                     decoration: BoxDecoration(
                         border: Border.all(color: whiteNormalActive),
                         borderRadius: BorderRadius.circular(5)),
@@ -184,7 +187,7 @@ class DetailPembayaranPage extends StatelessWidget {
                                 width: 20,
                                 height: 20,
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 width: 10,
                               ),
                               Text(
@@ -193,20 +196,21 @@ class DetailPembayaranPage extends StatelessWidget {
                               )
                             ],
                           ),
-                          Icon(
+                          const Icon(
                             Icons.arrow_forward_ios,
                             size: 16,
                           )
                         ]),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 Container(
                   width: double.infinity,
                   color: whiteLight,
-                  padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -214,7 +218,7 @@ class DetailPembayaranPage extends StatelessWidget {
                         "Metode Pembayaran",
                         style: headLine1.copyWith(fontSize: 16),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
                       GestureDetector(
@@ -223,7 +227,7 @@ class DetailPembayaranPage extends StatelessWidget {
                               arguments: detailPembayaranController);
                         },
                         child: Container(
-                          padding: EdgeInsets.all(10),
+                          padding: const EdgeInsets.all(10),
                           decoration: BoxDecoration(
                               border: Border.all(color: whiteNormalActive),
                               borderRadius: BorderRadius.circular(5)),
@@ -237,7 +241,7 @@ class DetailPembayaranPage extends StatelessWidget {
                                       width: 20,
                                       height: 20,
                                     ),
-                                    SizedBox(
+                                    const SizedBox(
                                       width: 10,
                                     ),
                                     GetBuilder<DetailPembayaranController>(
@@ -249,7 +253,7 @@ class DetailPembayaranPage extends StatelessWidget {
                                     })
                                   ],
                                 ),
-                                Icon(
+                                const Icon(
                                   Icons.arrow_forward_ios,
                                   size: 16,
                                 )
@@ -259,13 +263,14 @@ class DetailPembayaranPage extends StatelessWidget {
                     ],
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 Container(
                   width: double.infinity,
                   color: whiteLight,
-                  padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
                   child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -276,7 +281,7 @@ class DetailPembayaranPage extends StatelessWidget {
                               width: 20,
                               height: 20,
                             ),
-                            SizedBox(
+                            const SizedBox(
                               width: 10,
                             ),
                             Text(
@@ -285,7 +290,7 @@ class DetailPembayaranPage extends StatelessWidget {
                             ),
                           ],
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 10,
                         ),
                         Row(
@@ -301,7 +306,7 @@ class DetailPembayaranPage extends StatelessWidget {
                             )
                           ],
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 10,
                         ),
                         Row(
@@ -317,7 +322,7 @@ class DetailPembayaranPage extends StatelessWidget {
                             )
                           ],
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 10,
                         ),
                         Row(
@@ -333,7 +338,7 @@ class DetailPembayaranPage extends StatelessWidget {
                             )
                           ],
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 10,
                         ),
                         Row(
@@ -358,6 +363,5 @@ class DetailPembayaranPage extends StatelessWidget {
         ),
       ]),
     );
-    ;
   }
 }

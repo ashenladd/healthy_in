@@ -24,11 +24,11 @@ class DetailWebinarPage extends StatelessWidget {
             decoration: BoxDecoration(
                 border: Border(
                     top: BorderSide(color: whiteNormalActive, width: 1))),
-            padding: EdgeInsets.symmetric(vertical: 15, horizontal: 20),
+            padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
             child: Row(
               children: [
                 Container(
-                  padding: EdgeInsets.all(10),
+                  padding: const EdgeInsets.all(10),
                   decoration: BoxDecoration(
                       border: Border.all(width: 1.5, color: blueNormal),
                       borderRadius: BorderRadius.circular(5)),
@@ -38,11 +38,11 @@ class DetailWebinarPage extends StatelessWidget {
                     size: 35,
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 10,
                 ),
                 Container(
-                  padding: EdgeInsets.all(10),
+                  padding: const EdgeInsets.all(10),
                   decoration: BoxDecoration(
                       border: Border.all(width: 1.5, color: blueNormal),
                       borderRadius: BorderRadius.circular(5)),
@@ -52,7 +52,7 @@ class DetailWebinarPage extends StatelessWidget {
                     size: 35,
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 10,
                 ),
                 Expanded(
@@ -60,13 +60,13 @@ class DetailWebinarPage extends StatelessWidget {
                       style: ElevatedButton.styleFrom(
                           elevation: 0,
                           backgroundColor: //Condition ?
-                              Color.fromRGBO(68, 174, 243, 1.0)),
+                              const Color.fromRGBO(68, 174, 243, 1.0)),
                       onPressed: () {
                         Get.toNamed(DetailPembayaranPage.routeName,
                             arguments: arguments);
                       },
                       child: Container(
-                        padding: EdgeInsets.all(16.5),
+                        padding: const EdgeInsets.all(16.5),
                         child: Center(
                             child: Text("Pesan Sekarang",
                                 style: subTitle.copyWith(fontSize: 14))),
@@ -83,7 +83,7 @@ class DetailWebinarPage extends StatelessWidget {
                 onPressed: () {
                   Get.back();
                 },
-                icon: Icon(Icons.arrow_back)),
+                icon: const Icon(Icons.arrow_back)),
             title: Text(
               "Detail Webinar",
               style: headLine1.copyWith(color: Colors.white),
@@ -97,7 +97,7 @@ class DetailWebinarPage extends StatelessWidget {
                 Container(
                   width: double.infinity,
                   height: 198,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                       image: DecorationImage(
                           image: AssetImage('assets/Rectangle 1.png'),
                           fit: BoxFit.cover)),
@@ -105,14 +105,15 @@ class DetailWebinarPage extends StatelessWidget {
                 Container(
                   width: double.infinity,
                   color: whiteLight,
-                  padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Container(
-                        margin: EdgeInsets.all(2),
-                        padding:
-                            EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                        margin: const EdgeInsets.all(2),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 10, vertical: 5),
                         decoration: BoxDecoration(
                             border: Border.all(color: blueNormalHover),
                             color: blueLightHover,
@@ -123,7 +124,7 @@ class DetailWebinarPage extends StatelessWidget {
                               fontSize: 10, color: blueNormalHover),
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
                       Text(
@@ -143,7 +144,7 @@ class DetailWebinarPage extends StatelessWidget {
                                   children: [
                                     Icon(Icons.calendar_today,
                                         color: blueNormal),
-                                    SizedBox(
+                                    const SizedBox(
                                       width: 5,
                                     ),
                                     Text(
@@ -152,13 +153,13 @@ class DetailWebinarPage extends StatelessWidget {
                                     ),
                                   ],
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   height: 10,
                                 ),
                                 Row(
                                   children: [
                                     Icon(Icons.access_time, color: blueNormal),
-                                    SizedBox(
+                                    const SizedBox(
                                       width: 5,
                                     ),
                                     Text(
@@ -176,7 +177,7 @@ class DetailWebinarPage extends StatelessWidget {
                                 Row(
                                   children: [
                                     Icon(Icons.attach_money, color: blueNormal),
-                                    SizedBox(
+                                    const SizedBox(
                                       width: 5,
                                     ),
                                     Text(
@@ -187,7 +188,7 @@ class DetailWebinarPage extends StatelessWidget {
                                     ),
                                   ],
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   height: 10,
                                 ),
                                 Row(
@@ -196,7 +197,7 @@ class DetailWebinarPage extends StatelessWidget {
                                       Icons.person_2_outlined,
                                       color: blueNormal,
                                     ),
-                                    SizedBox(
+                                    const SizedBox(
                                       width: 5,
                                     ),
                                     Text(
@@ -213,13 +214,14 @@ class DetailWebinarPage extends StatelessWidget {
                     ],
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 Container(
                   width: double.infinity,
                   color: whiteLight,
-                  padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
                   child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -227,7 +229,7 @@ class DetailWebinarPage extends StatelessWidget {
                           "Detail Webinar",
                           style: headLine1.copyWith(fontSize: 16),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 10,
                         ),
                         Text(
@@ -236,13 +238,14 @@ class DetailWebinarPage extends StatelessWidget {
                         )
                       ]),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 Container(
                   width: double.infinity,
                   color: whiteLight,
-                  padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
                   child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -250,7 +253,7 @@ class DetailWebinarPage extends StatelessWidget {
                           "Syarat dan Ketentuan",
                           style: headLine1.copyWith(fontSize: 16),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 10,
                         ),
                         Text(
