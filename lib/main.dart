@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:healthy_in/Pages/home_page.dart';
 import 'package:healthy_in/Pages/login_page.dart';
+import 'Pages/Booking/booking_detail.dart';
 import 'Pages/SignUp Page/sign_up_detail_page.dart';
+import 'Pages/Booking/booking_dokter.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 void main() {
@@ -33,7 +35,7 @@ class MyApp extends StatelessWidget {
                 fontWeight: FontWeight.w400,
               ))),
       debugShowCheckedModeBanner: false,
-      home: HomePage(),
+      home: BookingDetail(kata: "",),
     );
   }
 }

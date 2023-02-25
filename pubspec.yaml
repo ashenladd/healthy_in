@@ -37,6 +37,8 @@ dependencies:
   cupertino_icons: ^1.0.2
   google_fonts: ^4.0.3
   get: ^4.6.5
+  intl: ^0.18.0
+  firebase_auth: ^4.2.2
 
 dev_dependencies:
   flutter_test:
@@ -62,7 +64,16 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
+  assets:
+  - images/kandungan.png
+  - images/anak.png
+  - images/gigi.png
+  - images/hewan.png
+  - images/mata.png
+  - images/psikologi.png
+  - images/tht.png
+  - images/umum.png
+  - images/dokter.png
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 
