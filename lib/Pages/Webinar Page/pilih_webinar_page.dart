@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:get/get.dart';
 import 'package:healthy_in/theme/colors.dart';
 import 'package:healthy_in/widgets/app_top_bar.dart';
 import 'package:healthy_in/widgets/item_list_view.dart';
@@ -9,6 +10,7 @@ import '../../theme/fonts.dart';
 import '../../widgets/item_list_view_large.dart';
 
 class PilihWebinarPage extends StatelessWidget {
+  static String routeName = '/pilih-webinar-page';
   const PilihWebinarPage({super.key});
 
   @override
@@ -20,8 +22,8 @@ class PilihWebinarPage extends StatelessWidget {
         children: [
           AppTopBar(
             child: GridTileBar(
-              leading:
-                  IconButton(onPressed: () {}, icon: Icon(Icons.arrow_back)),
+              leading: IconButton(
+                  onPressed: () => Get.back(), icon: Icon(Icons.arrow_back)),
               title: Text(
                 "Webinar",
                 style: headLine1.copyWith(color: Colors.white),

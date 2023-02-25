@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
+import 'package:healthy_in/Controller/webinar_controller.dart';
+import 'package:healthy_in/Pages/Webinar%20Page/pilih_webinar_page.dart';
+import 'package:healthy_in/Pages/profile_page.dart';
 
 import 'package:healthy_in/theme/fonts.dart';
 import 'package:healthy_in/widgets/app_top_bar.dart';
@@ -8,23 +12,85 @@ import 'package:healthy_in/widgets/item_list_view.dart';
 import '../theme/colors.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+  WebinarController webinarController = Get.put(WebinarController());
+
+  static String routeName = '/home-page';
+  HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    double h = MediaQuery.of(context).size.height;
-    double w = MediaQuery.of(context).size.width;
+    webinarController.getAllWebinar();
     return Scaffold(
+      bottomNavigationBar: BottomAppBar(
+        height: 70,
+        color: Colors.white,
+        child: Container(
+            padding: EdgeInsets.symmetric(
+              vertical: 10,
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Column(
+                  children: [
+                    SvgPicture.asset('assets/Home.svg'),
+                    Text(
+                      'Home',
+                      style: bodyText1.copyWith(color: blueNormal),
+                    )
+                  ],
+                ),
+                Column(
+                  children: [
+                    SvgPicture.asset('assets/Chat.svg'),
+                    Text(
+                      'Chat',
+                      style: bodyText1.copyWith(color: whiteDark),
+                    )
+                  ],
+                ),
+                GestureDetector(
+                  onTap: () => Get.toNamed(PilihWebinarPage.routeName),
+                  child: Column(
+                    children: [
+                      SvgPicture.asset('assets/Webinar.svg'),
+                      Text(
+                        'Webinar',
+                        style: bodyText1.copyWith(color: whiteDark),
+                      )
+                    ],
+                  ),
+                ),
+                GestureDetector(
+                  onTap: () => Get.toNamed(ProfilePage.routeName),
+                  child: Column(
+                    children: [
+                      SvgPicture.asset('assets/Profile.svg'),
+                      Text(
+                        'Profile',
+                        style: bodyText1.copyWith(color: whiteDark),
+                      )
+                    ],
+                  ),
+                ),
+              ],
+            )),
+      ),
       body: Column(children: [
         AppTopBar(
             child: Container(
           margin: EdgeInsets.symmetric(horizontal: 20),
           child: GridTileBar(
-            leading: CircleAvatar(
-              backgroundColor: Colors.white,
+            leading: GestureDetector(
+              onTap: () {
+                Get.toNamed(ProfilePage.routeName);
+              },
               child: CircleAvatar(
-                radius: 19,
-                backgroundColor: Colors.black,
+                backgroundColor: Colors.white,
+                child: CircleAvatar(
+                  radius: 19,
+                  backgroundColor: Colors.black,
+                ),
               ),
             ),
             title: Container(
@@ -72,43 +138,121 @@ class HomePage extends StatelessWidget {
                   SizedBox(
                     height: 15,
                   ),
-                  ItemListView(
-                    itemCount: 3,
-                    image: AssetImage("assets/${"Rectangle 1.png"}"),
-                    title: Text(
-                      "Bincang Sehat Bersama Dokter Reisa : Cara Mengatasi Baby Blues Bagi Ibu",
-                      style: subTitle.copyWith(fontSize: 12),
-                      maxLines: 2,
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Row(
-                          children: [
-                            Icon(Icons.calendar_today),
-                            SizedBox(
-                              width: 5,
-                            ),
-                            Text(
-                              '17 Oktober 2023',
-                              style: bodyText1.copyWith(fontSize: 10),
-                            ),
-                          ],
-                        ),
-                        Row(
-                          children: [
-                            Icon(Icons.access_time),
-                            SizedBox(
-                              width: 5,
-                            ),
-                            Text(
-                              '08:00 - 09.00 WIB',
-                              style: bodyText1.copyWith(fontSize: 10),
-                            ),
-                          ],
-                        )
-                      ],
-                    ),
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: GetBuilder<WebinarController>(builder: (context) {
+                      return Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: context.allWebinar
+                            .map((webinar) => ListWebinarWidget(
+                                  title: webinar.title,
+                                  image: "assets/${"Rectangle 1.png"}",
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Row(
+                                        children: [
+                                          Icon(Icons.calendar_today),
+                                          SizedBox(
+                                            width: 5,
+                                          ),
+                                          Text(
+                                            '17 Oktober 2023',
+                                            style: bodyText1.copyWith(
+                                                fontSize: 10),
+                                          ),
+                                        ],
+                                      ),
+                                      Row(
+                                        children: [
+                                          Icon(Icons.access_time),
+                                          SizedBox(
+                                            width: 5,
+                                          ),
+                                          Text(
+                                            '08:00 - 09.00 WIB',
+                                            style: bodyText1.copyWith(
+                                                fontSize: 10),
+                                          ),
+                                        ],
+                                      )
+                                    ],
+                                  ),
+                                ))
+                            .toList(),
+                        // children: [
+                        //   ListWebinarWidget(
+                        //     image: "assets/${"Rectangle 1.png"}",
+                        //     title:
+                        //         "Bincang Sehat Bersama Dokter Reisa : Cara Mengatasi Baby Blues Bagi Ibu",
+                        //     child: Row(
+                        //       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        //       children: [
+                        //         Row(
+                        //           children: [
+                        //             Icon(Icons.calendar_today),
+                        //             SizedBox(
+                        //               width: 5,
+                        //             ),
+                        //             Text(
+                        //               '17 Oktober 2023',
+                        //               style: bodyText1.copyWith(fontSize: 10),
+                        //             ),
+                        //           ],
+                        //         ),
+                        //         Row(
+                        //           children: [
+                        //             Icon(Icons.access_time),
+                        //             SizedBox(
+                        //               width: 5,
+                        //             ),
+                        //             Text(
+                        //               '08:00 - 09.00 WIB',
+                        //               style: bodyText1.copyWith(fontSize: 10),
+                        //             ),
+                        //           ],
+                        //         )
+                        //       ],
+                        //     ),
+                        //   ),
+                        //   ListWebinarWidget(
+                        //     image: "assets/${"Rectangle 1.png"}",
+                        //     title:
+                        //         "Bincang Sehat Bersama Dokter Reisa : Cara Mengatasi Baby Blues Bagi Ibu",
+                        //     child: Row(
+                        //       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        //       children: [
+                        //         Row(
+                        //           children: [
+                        //             Icon(Icons.calendar_today),
+                        //             SizedBox(
+                        //               width: 5,
+                        //             ),
+                        //             Text(
+                        //               '17 Oktober 2023',
+                        //               style: bodyText1.copyWith(fontSize: 10),
+                        //             ),
+                        //           ],
+                        //         ),
+                        //         Row(
+                        //           children: [
+                        //             Icon(Icons.access_time),
+                        //             SizedBox(
+                        //               width: 5,
+                        //             ),
+                        //             Text(
+                        //               '08:00 - 09.00 WIB',
+                        //               style: bodyText1.copyWith(fontSize: 10),
+                        //             ),
+                        //           ],
+                        //         )
+                        //       ],
+                        //     ),
+                        //   )
+                        // ],
+                      );
+                    }),
                   ),
                   SizedBox(
                     height: 27,
@@ -234,28 +378,47 @@ class HomePage extends StatelessWidget {
                   SizedBox(
                     height: 15,
                   ),
-                  ItemListView(
-                      itemCount: 3,
-                      image: AssetImage("assets/${"Rectangle 2.png"}"),
-                      title: Text(
-                        "Tips Menghilangkan Stress Karena Tugas yang Menumpuk",
-                        style: subTitle.copyWith(fontSize: 10),
-                        maxLines: 2,
-                      ),
-                      child: Container(
-                        margin: EdgeInsets.all(2),
-                        padding:
-                            EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                        decoration: BoxDecoration(
-                            border: Border.all(color: blueNormalHover),
-                            color: blueLightHover,
-                            borderRadius: BorderRadius.circular(5)),
-                        child: Text(
-                          "Kesehatan Mental",
-                          style: bodyText1.copyWith(
-                              fontSize: 10, color: blueNormalHover),
-                        ),
-                      ))
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(children: [
+                      ListWebinarWidget(
+                          image: "assets/${"Rectangle 2.png"}",
+                          title:
+                              "Tips Menghilangkan Stress Karena Tugas yang Menumpuk",
+                          child: Container(
+                            margin: EdgeInsets.all(2),
+                            padding: EdgeInsets.symmetric(
+                                horizontal: 10, vertical: 5),
+                            decoration: BoxDecoration(
+                                border: Border.all(color: blueNormalHover),
+                                color: blueLightHover,
+                                borderRadius: BorderRadius.circular(5)),
+                            child: Text(
+                              "Kesehatan Mental",
+                              style: bodyText1.copyWith(
+                                  fontSize: 10, color: blueNormalHover),
+                            ),
+                          )),
+                      ListWebinarWidget(
+                          image: "assets/${"Rectangle 2.png"}",
+                          title:
+                              "Tips Menghilangkan Stress Karena Tugas yang Menumpuk",
+                          child: Container(
+                            margin: EdgeInsets.all(2),
+                            padding: EdgeInsets.symmetric(
+                                horizontal: 10, vertical: 5),
+                            decoration: BoxDecoration(
+                                border: Border.all(color: blueNormalHover),
+                                color: blueLightHover,
+                                borderRadius: BorderRadius.circular(5)),
+                            child: Text(
+                              "Kesehatan Mental",
+                              style: bodyText1.copyWith(
+                                  fontSize: 10, color: blueNormalHover),
+                            ),
+                          )),
+                    ]),
+                  ),
                 ],
               ),
             ),

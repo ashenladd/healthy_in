@@ -7,6 +7,7 @@ import 'package:healthy_in/theme/fonts.dart';
 import 'package:healthy_in/widgets/app_top_bar.dart';
 
 class PembayaranBerhasilPage extends StatelessWidget {
+  static String routeName = '/pembayaran-berhasil-page';
   const PembayaranBerhasilPage({super.key});
 
   @override

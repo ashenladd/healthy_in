@@ -7,6 +7,7 @@ import 'package:healthy_in/widgets/app_top_bar.dart';
 enum MetodePembayaran { mandiri, bca, bni }
 
 class PilihMetodePembayaranPage extends StatefulWidget {
+  static String routeName = '/pilih-metode-pembayaran-page';
   const PilihMetodePembayaranPage({super.key});
 
   @override
@@ -19,6 +20,7 @@ class _PilihMetodePembayaranPageState extends State<PilihMetodePembayaranPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: whiteNormal,
       bottomNavigationBar: BottomAppBar(
         height: 90,
         color: Colors.white,

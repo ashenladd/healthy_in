@@ -6,6 +6,7 @@ import 'package:healthy_in/widgets/app_top_bar.dart';
 import '../../theme/fonts.dart';
 
 class DetailWebinarPage extends StatelessWidget {
+  static String routeName = '/detail-webinar-page';
   const DetailWebinarPage({super.key});
 
   @override
