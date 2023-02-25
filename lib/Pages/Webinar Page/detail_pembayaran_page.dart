@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
@@ -19,6 +20,7 @@ class DetailPembayaranPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    User? user = FirebaseAuth.instance.currentUser;
     return Scaffold(
       bottomNavigationBar: BottomAppBar(
         height: 90,
@@ -124,8 +126,9 @@ class DetailPembayaranPage extends StatelessWidget {
                             style: bodyText1,
                           ),
                           Text(
-                            'David Saepudin',
-                            style: bodyText1,
+                            user?.displayName != null
+                                ? '${user?.displayName}'
+                                : '-',
                           )
                         ],
                       ),
@@ -140,7 +143,7 @@ class DetailPembayaranPage extends StatelessWidget {
                             style: bodyText1,
                           ),
                           Text(
-                            'davidsaepudi@gmail.com',
+                            user?.email != null ? '${user?.email}' : '-',
                             style: bodyText1,
                           )
                         ],
@@ -156,7 +159,9 @@ class DetailPembayaranPage extends StatelessWidget {
                             style: bodyText1,
                           ),
                           Text(
-                            '083294829304302',
+                            user?.phoneNumber != null
+                                ? '${user?.phoneNumber}'
+                                : '-',
                             style: bodyText1,
                           )
                         ],
