@@ -2,11 +2,13 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:healthy_in/Pages/SignUp%20Page/sign_up_page.dart';
+import 'package:healthy_in/Pages/home_page.dart';
 import 'package:healthy_in/theme/fonts.dart';
 
 import '../widgets/app_top_bar.dart';
 
 class LoginPage extends StatefulWidget {
+  static String routeName = '/login-page';
   const LoginPage({super.key});
 
   @override
@@ -145,7 +147,11 @@ class _LoginPageState extends State<LoginPage> {
                               isButtonEnabled
                                   ? Color.fromRGBO(68, 174, 243, 1.0)
                                   : Color.fromRGBO(191, 225, 248, 1.0)),
-                      onPressed: () {},
+                      onPressed: () {
+                        if (isButtonEnabled) {
+                          Get.toNamed(HomePage.routeName);
+                        }
+                      },
                       child: Container(
                         padding: EdgeInsets.all(15),
                         width: w,
@@ -167,7 +173,7 @@ class _LoginPageState extends State<LoginPage> {
                                 fontWeight: FontWeight.w600,
                                 decoration: TextDecoration.underline),
                             recognizer: TapGestureRecognizer()
-                              ..onTap = () => Get.to(const SignUp())),
+                              ..onTap = () => Get.toNamed(SignUp.routeName)),
                       ])),
                   SizedBox(
                     height: 127,

@@ -1,12 +1,31 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:healthy_in/Pages/SignUp%20Page/sign_up_detail_page.dart';
 import 'package:healthy_in/theme/fonts.dart';
 
 import '../../widgets/app_top_bar.dart';
 
-class SignUp extends StatelessWidget {
-  const SignUp({super.key});
+class SignUp extends StatefulWidget {
+  static String routeName = '/signup-page';
+  SignUp({super.key});
+
+  @override
+  State<SignUp> createState() => _SignUpState();
+}
+
+class _SignUpState extends State<SignUp> {
+  final TextEditingController phoneNumberController = TextEditingController();
+
+  bool isButtonEnabled = false;
+
+  void changeButtonState() {
+    if (phoneNumberController.text.length >= 10) {
+      isButtonEnabled = true;
+    } else {
+      isButtonEnabled = false;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -40,6 +59,8 @@ class SignUp extends StatelessWidget {
                     height: 42,
                   ),
                   TextField(
+                    onChanged: (value) => changeButtonState(),
+                    controller: phoneNumberController,
                     keyboardType: TextInputType.number,
                     decoration: InputDecoration(
                       hintText: "Nomor Handphone",
@@ -73,8 +94,14 @@ class SignUp extends StatelessWidget {
                       style: ElevatedButton.styleFrom(
                           elevation: 0,
                           backgroundColor: //Condition ?
-                              Color.fromRGBO(191, 225, 248, 1.0)),
-                      onPressed: () {},
+                              isButtonEnabled
+                                  ? Color.fromRGBO(68, 174, 243, 1.0)
+                                  : Color.fromRGBO(191, 225, 248, 1.0)),
+                      onPressed: () {
+                        if (isButtonEnabled) {
+                          Get.toNamed(SignUpDetail.routeName);
+                        }
+                      },
                       child: Container(
                         padding: EdgeInsets.all(15),
                         width: w,

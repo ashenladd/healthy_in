@@ -1,12 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
+import 'package:healthy_in/Controller/detail_pembayaran_controller.dart';
+import 'package:healthy_in/Models/webinar_models.dart';
+import 'package:healthy_in/Pages/Webinar%20Page/pilih_metode_pembayaran_page.dart';
+import 'package:healthy_in/Pages/pembayaran_berhasil_page.dart';
 import 'package:healthy_in/theme/colors.dart';
 import 'package:healthy_in/theme/fonts.dart';
 
 import 'package:healthy_in/widgets/app_top_bar.dart';
 
 class DetailPembayaranPage extends StatelessWidget {
-  const DetailPembayaranPage({super.key});
+  final Webinar arguments = Get.arguments;
+  final DetailPembayaranController detailPembayaranController =
+      Get.put(DetailPembayaranController(webinar: Get.arguments));
+  static String routeName = '/detail-pembayaran-page';
+  DetailPembayaranPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +36,10 @@ class DetailPembayaranPage extends StatelessWidget {
                           elevation: 0,
                           backgroundColor: //Condition ?
                               Color.fromRGBO(68, 174, 243, 1.0)),
-                      onPressed: () {},
+                      onPressed: () {
+                        Get.toNamed(PembayaranBerhasilPage.routeName,
+                            arguments: arguments);
+                      },
                       child: Container(
                         padding: EdgeInsets.all(16.5),
                         child: Center(
@@ -42,7 +54,11 @@ class DetailPembayaranPage extends StatelessWidget {
       body: Column(children: [
         AppTopBar(
           child: GridTileBar(
-            leading: IconButton(onPressed: () {}, icon: Icon(Icons.arrow_back)),
+            leading: IconButton(
+                onPressed: () {
+                  Get.back();
+                },
+                icon: Icon(Icons.arrow_back)),
             title: Text(
               "Detail Pembayaran",
               style: headLine1.copyWith(color: Colors.white),
@@ -69,14 +85,14 @@ class DetailPembayaranPage extends StatelessWidget {
                       ),
                     ),
                     title: Text(
-                      'Bincang Sehat Bersama Dokter Reisa : Cara Mengatasi Baby Blues Bagi Ibu',
+                      arguments.title,
                       style: headLine1.copyWith(
                         fontSize: 12,
                       ),
                       maxLines: 2,
                     ),
                     subtitle: Text(
-                      "25 Oktober 2023 - 09:00-10:00 WIB",
+                      "${arguments.date} - ${arguments.startTime}-${arguments.endTime} WIB",
                       style: bodyText1.copyWith(fontSize: 11),
                     ),
                   ),
@@ -201,35 +217,44 @@ class DetailPembayaranPage extends StatelessWidget {
                       SizedBox(
                         height: 10,
                       ),
-                      Container(
-                        padding: EdgeInsets.all(10),
-                        decoration: BoxDecoration(
-                            border: Border.all(color: whiteNormalActive),
-                            borderRadius: BorderRadius.circular(5)),
-                        child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Row(
-                                children: [
-                                  SvgPicture.asset(
-                                    'assets/ion_card-outline.svg',
-                                    width: 20,
-                                    height: 20,
-                                  ),
-                                  SizedBox(
-                                    width: 10,
-                                  ),
-                                  Text(
-                                    'Pilih Metode Pembayaran',
-                                    style: bodyText1,
-                                  )
-                                ],
-                              ),
-                              Icon(
-                                Icons.arrow_forward_ios,
-                                size: 16,
-                              )
-                            ]),
+                      GestureDetector(
+                        onTap: () {
+                          Get.toNamed(PilihMetodePembayaranPage.routeName,
+                              arguments: detailPembayaranController);
+                        },
+                        child: Container(
+                          padding: EdgeInsets.all(10),
+                          decoration: BoxDecoration(
+                              border: Border.all(color: whiteNormalActive),
+                              borderRadius: BorderRadius.circular(5)),
+                          child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Row(
+                                  children: [
+                                    SvgPicture.asset(
+                                      'assets/ion_card-outline.svg',
+                                      width: 20,
+                                      height: 20,
+                                    ),
+                                    SizedBox(
+                                      width: 10,
+                                    ),
+                                    GetBuilder<DetailPembayaranController>(
+                                        builder: (context) {
+                                      return Text(
+                                        context.selectedPayment,
+                                        style: bodyText1,
+                                      );
+                                    })
+                                  ],
+                                ),
+                                Icon(
+                                  Icons.arrow_forward_ios,
+                                  size: 16,
+                                )
+                              ]),
+                        ),
                       ),
                     ],
                   ),
@@ -271,7 +296,7 @@ class DetailPembayaranPage extends StatelessWidget {
                               style: bodyText1,
                             ),
                             Text(
-                              'Rp25.000',
+                              'Rp${arguments.stringPrice}',
                               style: bodyText1,
                             )
                           ],
@@ -319,7 +344,7 @@ class DetailPembayaranPage extends StatelessWidget {
                               style: subTitle.copyWith(fontSize: 12),
                             ),
                             Text(
-                              'Rp25.000',
+                              'Rp${arguments.stringPrice}',
                               style: subTitle.copyWith(
                                   fontSize: 12, color: blueNormalActive),
                             )

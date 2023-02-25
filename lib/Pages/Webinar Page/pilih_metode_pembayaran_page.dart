@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
+import 'package:healthy_in/Controller/detail_pembayaran_controller.dart';
 import 'package:healthy_in/theme/colors.dart';
 import 'package:healthy_in/theme/fonts.dart';
 import 'package:healthy_in/widgets/app_top_bar.dart';
@@ -7,6 +9,7 @@ import 'package:healthy_in/widgets/app_top_bar.dart';
 enum MetodePembayaran { mandiri, bca, bni }
 
 class PilihMetodePembayaranPage extends StatefulWidget {
+  static String routeName = '/pilih-metode-pembayaran-page';
   const PilihMetodePembayaranPage({super.key});
 
   @override
@@ -16,9 +19,12 @@ class PilihMetodePembayaranPage extends StatefulWidget {
 
 class _PilihMetodePembayaranPageState extends State<PilihMetodePembayaranPage> {
   MetodePembayaran? _value;
+  DetailPembayaranController detailPembayaranController = Get.arguments;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: whiteNormal,
       bottomNavigationBar: BottomAppBar(
         height: 90,
         color: Colors.white,
@@ -34,8 +40,15 @@ class _PilihMetodePembayaranPageState extends State<PilihMetodePembayaranPage> {
                       style: ElevatedButton.styleFrom(
                           elevation: 0,
                           backgroundColor: //Condition ?
-                              Color.fromRGBO(68, 174, 243, 1.0)),
-                      onPressed: () {},
+                              _value != null
+                                  ? Color.fromRGBO(68, 174, 243, 1.0)
+                                  : Color.fromRGBO(191, 225, 248, 1.0)),
+                      onPressed: () {
+                        if (_value != null) {
+                          detailPembayaranController.metodePembayaran = _value;
+                          Get.back();
+                        }
+                      },
                       child: Container(
                         padding: EdgeInsets.all(16.5),
                         child: Center(
@@ -50,8 +63,11 @@ class _PilihMetodePembayaranPageState extends State<PilihMetodePembayaranPage> {
         children: [
           AppTopBar(
             child: GridTileBar(
-              leading:
-                  IconButton(onPressed: () {}, icon: Icon(Icons.arrow_back)),
+              leading: IconButton(
+                  onPressed: () {
+                    Get.back();
+                  },
+                  icon: Icon(Icons.arrow_back)),
               title: Text(
                 "Metode Pembayaran",
                 style: headLine1.copyWith(color: Colors.white),
