@@ -92,6 +92,7 @@ class MyApp extends StatelessWidget {
                   name: PembayaranBerhasilPage.routeName,
                   page: () => PembayaranBerhasilPage()),
               GetPage(name: ProfilePage.routeName, page: () => ProfilePage()),
+              GetPage(name: '/bookingDetail', page: () => const BookingDetail(kata: "")),
             ],
           );
         });

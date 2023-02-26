@@ -16,8 +16,6 @@ class Booking extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(children: [
           AppTopBar(
-            width: w,
-            height: h,
             child: Container(
               margin: const EdgeInsets.symmetric(horizontal: 20),
               child: const GridTileBar(

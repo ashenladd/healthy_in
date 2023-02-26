@@ -68,8 +68,6 @@ class _BookingDetailState extends State<BookingDetail> {
         child: Column(
           children: [
             AppTopBar(
-              width: w,
-              height: h,
               child: Container(
                 margin: const EdgeInsets.symmetric(horizontal: 20),
                 child: GridTileBar(
@@ -346,6 +344,24 @@ class _BookingDetailState extends State<BookingDetail> {
                                                     },
                                                   ),
                                                 ),
+                                                Expanded(
+                                                  child: Row(
+                                                    children: [
+                                                      ElevatedButton(
+                                                        onPressed: () {
+                                                          // aksi yang dijalankan ketika tombol ditekan
+                                                        },
+                                                        child: Text('Cancel'),
+                                                      ),
+                                                      ElevatedButton(
+                                                        onPressed: () {
+                                                          // aksi yang dijalankan ketika tombol ditekan
+                                                        },
+                                                        child: Text('Terapkan'),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
                                               ],
                                             ),
                                           );
@@ -357,6 +373,40 @@ class _BookingDetailState extends State<BookingDetail> {
                                                   CrossAxisAlignment.start,
                                               // ignore: prefer_const_literals_to_create_immutables
                                               children: [
+                                                Padding(
+                                                    padding: EdgeInsets.only(
+                                                        top: 30)),
+                                                Row(
+                                                  // ignore: prefer_const_literals_to_create_immutables
+                                                  children: [
+                                                    Padding(
+                                                        padding:
+                                                            EdgeInsets.only(
+                                                      left: 30,
+                                                    )),
+                                                    Text(
+                                                      "Jenis Kelamin",
+                                                      style: TextStyle(
+                                                        fontSize: 18,
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                      ),
+                                                    ),
+                                                    Padding(
+                                                        padding:
+                                                            EdgeInsets.only(
+                                                                left: 150,
+                                                                top: 10)),
+                                                    Text(
+                                                      "Hapus Filter",
+                                                      style: TextStyle(
+                                                        color: Colors.grey,
+                                                        fontSize: 12,
+                                                      ),
+                                                      textAlign: TextAlign.end,
+                                                    ),
+                                                  ],
+                                                ),
                                                 ListView.builder(
                                                   shrinkWrap: true,
                                                   itemCount: isCheckedJk.length,
@@ -375,12 +425,23 @@ class _BookingDetailState extends State<BookingDetail> {
                                                     );
                                                   },
                                                 ),
-                                                ElevatedButton(
-                                                  child: Text('Submit'),
-                                                  onPressed: () {
-                                                    print(
-                                                        'Selected items: ${isCheckedJk[index]}');
-                                                  },
+                                                Expanded(
+                                                  child: Row(
+                                                    children: [
+                                                      ElevatedButton(
+                                                        onPressed: () {
+                                                          // aksi yang dijalankan ketika tombol ditekan
+                                                        },
+                                                        child: Text('Cancel'),
+                                                      ),
+                                                      ElevatedButton(
+                                                        onPressed: () {
+                                                          // aksi yang dijalankan ketika tombol ditekan
+                                                        },
+                                                        child: Text('Terapkan'),
+                                                      ),
+                                                    ],
+                                                  ),
                                                 ),
                                               ],
                                             ),
@@ -393,6 +454,40 @@ class _BookingDetailState extends State<BookingDetail> {
                                                   CrossAxisAlignment.start,
                                               // ignore: prefer_const_literals_to_create_immutables
                                               children: [
+                                                Padding(
+                                                    padding: EdgeInsets.only(
+                                                        top: 30)),
+                                                Row(
+                                                  // ignore: prefer_const_literals_to_create_immutables
+                                                  children: [
+                                                    Padding(
+                                                        padding:
+                                                            EdgeInsets.only(
+                                                      left: 30,
+                                                    )),
+                                                    Text(
+                                                      "Harga",
+                                                      style: TextStyle(
+                                                        fontSize: 18,
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                      ),
+                                                    ),
+                                                    Padding(
+                                                        padding:
+                                                            EdgeInsets.only(
+                                                                left: 150,
+                                                                top: 10)),
+                                                    Text(
+                                                      "Hapus Filter",
+                                                      style: TextStyle(
+                                                        color: Colors.grey,
+                                                        fontSize: 12,
+                                                      ),
+                                                      textAlign: TextAlign.end,
+                                                    ),
+                                                  ],
+                                                ),
                                                 ListView.builder(
                                                   shrinkWrap: true,
                                                   itemCount:
@@ -413,12 +508,23 @@ class _BookingDetailState extends State<BookingDetail> {
                                                     );
                                                   },
                                                 ),
-                                                ElevatedButton(
-                                                  child: Text('Submit'),
-                                                  onPressed: () {
-                                                    print(
-                                                        'Selected items: ${isCheckedHarga[index]}');
-                                                  },
+                                                Expanded(
+                                                  child: Row(
+                                                    children: [
+                                                      ElevatedButton(
+                                                        onPressed: () {
+                                                          // aksi yang dijalankan ketika tombol ditekan
+                                                        },
+                                                        child: Text('Cancel'),
+                                                      ),
+                                                      ElevatedButton(
+                                                        onPressed: () {
+                                                          // aksi yang dijalankan ketika tombol ditekan
+                                                        },
+                                                        child: Text('Terapkan'),
+                                                      ),
+                                                    ],
+                                                  ),
                                                 ),
                                               ],
                                             ),
@@ -658,7 +764,7 @@ class _BookingDetailState extends State<BookingDetail> {
                                     Padding(
                                       padding: EdgeInsets.only(left: 10),
                                       child: Row(
-                                        children: [ 
+                                        children: [
                                           Icon(
                                             Icons.message,
                                             size: 16,
