@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 TextStyle headLine1 = GoogleFonts.poppins(
-  fontSize: 25,
+  fontSize: 20,
   fontWeight: FontWeight.w600,
 );
 TextStyle subTitle = GoogleFonts.poppins(
